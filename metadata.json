@@ -1,0 +1,8 @@
+{
+  "name": "KrackAI",
+  "description": "Multi-agent research and high-perplexity humanization platform engineered to deconstruct AI syntax patterns, eliminate statistical markers, and produce human-grade research reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
