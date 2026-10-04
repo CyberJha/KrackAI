@@ -1,4 +1,221 @@
+import { Humanizer10RulesConfig } from '../types';
+
+export const THE_10_PROMPT_TEMPLATES = [
+  {
+    id: 1,
+    title: '12-Year-Old Comprehension (Adult-Respected)',
+    shortName: '12yo Readability',
+    prompt: `“Write for a 12-year-old. They should be able to understand this, so provide relatable information and examples, but don’t sound cheesy, as adults will be the ones actually reading this article.”`,
+    explanation: 'Dismantles dense jargon into crystal-clear, relatable concepts while maintaining intellectual respect and elegance.',
+    icon: 'Baby',
+  },
+  {
+    id: 2,
+    title: 'Anti-Academic & Coffee Shop Conversational Flow',
+    shortName: 'Coffee-Shop Chat',
+    prompt: `“Please generate text that avoids using formal or overly academic phrases such as 'it is worth noting,' 'furthermore,' 'consequently,' 'in terms of,' 'one may argue,' 'it is imperative,' 'this suggests that,' 'thus,' 'it is evident that,' 'notwithstanding,' 'pertaining to,' 'therein lies,' 'utilize,' 'be advised,' 'hence,' 'indicate,' 'facilitate,' 'subsequently,' 'moreover,' and 'it can be seen that.' Aim for a natural, conversational style that sounds like two friends talking at the coffee shop. Use direct, simple language and choose phrases that are commonly used in everyday speech. If a formal phrase is absolutely necessary for clarity or accuracy, you may include it, but otherwise, please prioritize making the text engaging, clear, and relatable."`,
+    explanation: 'Purges statistical AI buzzwords and robotic connectors, replacing them with fluid everyday conversational phrases.',
+    icon: 'Coffee',
+  },
+  {
+    id: 3,
+    title: 'Geographic & Regional Localization',
+    shortName: 'Local Geo Nuances',
+    prompt: `“When writing this article, keep in mind our customers live in (name the area if this applies to a local/regional business). Reference local phrases, landmarks, cultures, etc., if applicable.”`,
+    explanation: 'Infuses authentic local landmarks, colloquial turns of phrase, weather, and community culture.',
+    icon: 'MapPin',
+  },
+  {
+    id: 4,
+    title: 'Contractions & Colloquialisms',
+    shortName: 'Contractions & Slang',
+    prompt: `“Use contractions, colloquialisms, and approachable language throughout the article.”`,
+    explanation: 'Enforces natural English contractions (it\'s, don\'t, we\'ve, let\'s) to eliminate stiff AI cadence.',
+    icon: 'MessageSquare',
+  },
+  {
+    id: 5,
+    title: 'Brand / Company Identity Integration',
+    shortName: 'Brand Mentions',
+    prompt: `“When writing the article, please use our company name, which is (Company Name), at a few different points. It should be clear to the reader that we are the ones writing this post.” (feel free to include more pertinent information regarding your company here)`,
+    explanation: 'Weaves your brand naturally into the narrative without turning the piece into an obvious advertisement.',
+    icon: 'Building2',
+  },
+  {
+    id: 6,
+    title: 'Non-Pushy, Non-Salesy Human Touch',
+    shortName: 'Non-Pushy Empathy',
+    prompt: `“Do NOT be pushy or salesy with your writing style. We want the reader to know our company exists and that it solves the problem the article is discussing, but the style should not come across as biased. This is VERY important. The reader should sense we are very human just like them, we understand their problems, and we seek to honestly give them accurate information, in a fun, casual way.”`,
+    explanation: 'Builds genuine goodwill and trust by prioritizing honest helpfulness over high-pressure sales tactics.',
+    icon: 'HeartHandshake',
+  },
+  {
+    id: 7,
+    title: 'Vivid Scenarios & Fictional Illustrative Anecdotes',
+    shortName: 'Vivid Anecdotes',
+    prompt: `"Clarify the concepts in the article by anchoring them in vivid, conceivable real-life scenarios. Feel free to craft illustrative anecdotes that shed light on the subject matter. Transparency is key here—ensure that these hypothetical situations are presented as fictional examples, NOT as factual occurrences, as we want to maintain integrity with the reader."`,
+    explanation: 'Illuminates complex ideas through grounded hypothetical stories clearly framed as illustrative examples.',
+    icon: 'Sparkle',
+  },
+  {
+    id: 8,
+    title: 'High-Hook Introduction & Problem-Payoff Framework',
+    shortName: 'Hook & Payoff Intro',
+    prompt: `“The introduction of the article should identify the problem the buyer has and contextualize who they are. It should also outline what the reader will get and learn from reading the post, and the payoff that will come with completing the content.”`,
+    explanation: 'Hooks the reader immediately with an empathetic problem statement, target reader context, and explicit payoff promise.',
+    icon: 'Zap',
+  },
+  {
+    id: 9,
+    title: 'Dynamic Paragraph & Sentence Cadence (Burstiness)',
+    shortName: 'Cadence Burstiness',
+    prompt: `“Vary the length of the paragraphs and sentences in these writings. Look for opportunities to create punchy, incisive moments to land your points, while at other times produce paragraphs that are 2-4 sentences as needed.”`,
+    explanation: 'Creates a musical human rhythm alternating between 3-word punchy lines and flowing multi-clause sentences.',
+    icon: 'Activity',
+  },
+  {
+    id: 10,
+    title: 'Target Buyer Persona / Reader Avatar Alignment',
+    shortName: 'Target Avatar',
+    prompt: `“Keep in mind our primary avatar/persona for this article is (Describe your ideal persona/reader here. Be as detailed as you’d like to be.) Reference these elements of the avatar when appropriate to the content.”`,
+    explanation: 'Speaks directly to the exact daily struggles, desires, and habits of your specific reader demographic.',
+    icon: 'UserCheck',
+  },
+];
+
+export const DEFAULT_10_RULES_CONFIG: Humanizer10RulesConfig = {
+  rule1_12yoReading: true,
+  rule2_antiAcademicCoffeeShop: true,
+  rule3_localGeographic: true,
+  rule3_targetLocation: 'Austin, Texas',
+  rule4_contractionsColloquial: true,
+  rule5_brandIntegration: true,
+  rule5_companyName: 'Hill Country Solar & Storage',
+  rule5_companyInfo: 'Local family-owned clean energy installer operating across Travis and Williamson counties for over 12 years.',
+  rule6_nonPushyAuthentic: true,
+  rule7_fictionalAnecdotes: true,
+  rule7_anecdoteTheme: 'Imagine a homeowner named Sarah whose AC trips during a scorching 104° August heatwave',
+  rule8_hookIntroFramework: true,
+  rule9_dynamicCadence: true,
+  rule10_targetAvatar: true,
+  rule10_avatarDescription: 'Cost-conscious Texas homeowner (30-55 yrs old) frustrated with rising ERCOT electric bills and unpredictable grid blackouts.',
+};
+
+export interface SamplePresetDefinition {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  config: Humanizer10RulesConfig;
+  sampleInput: string;
+}
+
+export const SAMPLE_10_RULE_PRESETS: SamplePresetDefinition[] = [
+  {
+    id: 'austin-solar',
+    name: 'Austin Clean Energy Pro',
+    category: 'Local Service Business',
+    description: 'Targeting Texas homeowners tackling summer electric bills with friendly local flair.',
+    config: {
+      rule1_12yoReading: true,
+      rule2_antiAcademicCoffeeShop: true,
+      rule3_localGeographic: true,
+      rule3_targetLocation: 'Austin & Central Texas (Hill Country, Barton Springs, South Congress)',
+      rule4_contractionsColloquial: true,
+      rule5_brandIntegration: true,
+      rule5_companyName: 'Lone Star Solar Lab',
+      rule5_companyInfo: 'Austin-based residential rooftop solar & battery installer focused on zero-pressure education.',
+      rule6_nonPushyAuthentic: true,
+      rule7_fictionalAnecdotes: true,
+      rule7_anecdoteTheme: 'A fictional family in Round Rock dealing with a $480 July electricity bill while running two AC units',
+      rule8_hookIntroFramework: true,
+      rule9_dynamicCadence: true,
+      rule10_targetAvatar: true,
+      rule10_avatarDescription: 'Practical Texas homeowner in their late 30s or 40s who loves BBQ weekends and hates surging summer utility bills.',
+    },
+    sampleInput: `In today's rapidly evolving energy landscape, residential solar power and battery backup systems play a pivotal role in mitigating escalating utility expenditures. Furthermore, it is worth noting that rooftop photovoltaic arrays utilize monocrystalline silicon cells to facilitate seamless conversion of sunlight into direct current electricity. Consequently, homeowners who implement energy storage solutions can foster resilience against grid instability. Moreover, it is imperative to recognize that lithium iron phosphate chemistry serves as a testament to modern engineering, providing paramount reliability during periods of peak demand. In conclusion, adopting clean energy solutions represents a transformative game-changer for suburban residential properties.`,
+  },
+  {
+    id: 'denver-coffee',
+    name: 'Mile High Artisan Coffee',
+    category: 'Food & Beverage / E-Commerce',
+    description: 'Casual, warm specialty coffee guide for beginner home brewers.',
+    config: {
+      rule1_12yoReading: true,
+      rule2_antiAcademicCoffeeShop: true,
+      rule3_localGeographic: true,
+      rule3_targetLocation: 'Denver & the Front Range (RiNo, Highlands, Red Rocks trailheads)',
+      rule4_contractionsColloquial: true,
+      rule5_brandIntegration: true,
+      rule5_companyName: 'Elevation Roasters',
+      rule5_companyInfo: 'Denver micro-roastery sourcing fair-trade micro-lots and helping folks make better coffee at home.',
+      rule6_nonPushyAuthentic: true,
+      rule7_fictionalAnecdotes: true,
+      rule7_anecdoteTheme: 'Picture a weekend hiker named Dave trying to brew a french press at 6 AM before heading up I-70',
+      rule8_hookIntroFramework: true,
+      rule9_dynamicCadence: true,
+      rule10_targetAvatar: true,
+      rule10_avatarDescription: 'Active outdoor enthusiast who loves good coffee but feels intimidated by pretentious coffee snobbery.',
+    },
+    sampleInput: `Specialty coffee extraction pertains to the multifaceted hydrodynamic dissolution of soluble flavor compounds from roasted Arabica beans. Furthermore, it is crucial to observe that water temperature between 92°C and 96°C facilitates optimal extraction kinetics without inducing excessive bitterness. Moreover, grind uniformity underscores the cornerstone of repeatable espresso brewing, wherein burr grinders utilize precision steel conical mechanisms to mitigate fines. Consequently, one may argue that water chemistry plays a paramount role, as calcium and magnesium ions foster enhanced flavor transport. In summary, mastering coffee brewing represents a transformative journey for beverage connoisseurs.`,
+  },
+  {
+    id: 'saas-remote-ops',
+    name: 'CloudSync Workflow SaaS',
+    category: 'B2B Software & Tech',
+    description: 'De-jargonizing enterprise software for busy remote team leaders.',
+    config: {
+      rule1_12yoReading: true,
+      rule2_antiAcademicCoffeeShop: true,
+      rule3_localGeographic: false,
+      rule3_targetLocation: '',
+      rule4_contractionsColloquial: true,
+      rule5_brandIntegration: true,
+      rule5_companyName: 'FlowPulse',
+      rule5_companyInfo: 'Lightweight asynchronous team check-in and task coordination tool for distributed teams.',
+      rule6_nonPushyAuthentic: true,
+      rule7_fictionalAnecdotes: true,
+      rule7_anecdoteTheme: 'Imagine a team lead named Maya who spent 4 hours on a Monday just figuring out who was working on what',
+      rule8_hookIntroFramework: true,
+      rule9_dynamicCadence: true,
+      rule10_targetAvatar: true,
+      rule10_avatarDescription: 'Stressed product manager or team lead managing 8 remote engineers across 3 time zones.',
+    },
+    sampleInput: `In the contemporary digital workplace, asynchronous collaboration frameworks have emerged as an indispensable paradigm for distributed organizations. It is worth noting that excessive synchronous video conferences foster cognitive fatigue and undermine deep work cycles. Furthermore, cross-functional project management platforms utilize automated status aggregators to facilitate real-time operational visibility. Consequently, this methodology serves as a testament to agile principles, underscoring the necessity of streamlined documentation. Thus, organizations that prioritize structured asynchronous communication can revolutionize productivity benchmarks.`,
+  },
+  {
+    id: 'chicago-personal-finance',
+    name: 'Windy City Wealth Guide',
+    category: 'Finance & Investing',
+    description: 'Making index funds and retirement planning simple and stress-free.',
+    config: {
+      rule1_12yoReading: true,
+      rule2_antiAcademicCoffeeShop: true,
+      rule3_localGeographic: true,
+      rule3_targetLocation: 'Chicago & Chicagoland suburbs (Loop, Lincoln Park, West Loop)',
+      rule4_contractionsColloquial: true,
+      rule5_brandIntegration: true,
+      rule5_companyName: 'Lakeside Financial Advisory',
+      rule5_companyInfo: 'Fee-only fiduciary financial planning firm dedicated to transparent, plain-English advice.',
+      rule6_nonPushyAuthentic: true,
+      rule7_fictionalAnecdotes: true,
+      rule7_anecdoteTheme: 'Think of a 32-year-old marketing manager named Marcus looking at his company 401(k) dashboard like it is written in hieroglyphics',
+      rule8_hookIntroFramework: true,
+      rule9_dynamicCadence: true,
+      rule10_targetAvatar: true,
+      rule10_avatarDescription: 'Working professional (28-45 yrs) who wants to build wealth and stop worrying about money without getting scammed by fancy jargon.',
+    },
+    sampleInput: `Compound interest is widely acknowledged as a foundational cornerstone of long-term wealth accumulation. It is imperative to comprehend that reinvesting dividend distributions facilitates exponential capital appreciation over multi-decade horizons. Furthermore, low-cost index funds utilize broad market diversification to mitigate idiosyncratic risk across equity asset classes. Consequently, dollar-cost averaging serves as a testament to disciplined asset allocation, ensuring that investors navigate market volatility without emotional distress. In summary, adopting a prudent financial strategy plays a pivotal role in securing retirement readiness.`,
+  },
+];
+
 export const SAMPLE_AI_DRAFTS = [
+  {
+    id: 'austin-solar-draft',
+    title: 'Texas Solar & Heatwaves (Formulaic AI Draft)',
+    topic: 'How residential solar and batteries work during Texas summers',
+    text: `In today's rapidly evolving energy landscape, residential solar power and battery backup systems play a pivotal role in mitigating escalating utility expenditures across Texas. Furthermore, it is worth noting that rooftop photovoltaic arrays utilize monocrystalline silicon cells to facilitate seamless conversion of sunlight into direct current electricity. Consequently, homeowners who implement energy storage solutions can foster resilience against grid instability. Moreover, it is imperative to recognize that lithium iron phosphate chemistry serves as a testament to modern engineering, providing paramount reliability during periods of peak demand. In conclusion, adopting clean energy solutions represents a transformative game-changer for suburban residential properties.`,
+  },
   {
     id: 'quantum-engineering',
     title: 'Quantum Engineering (Standard AI Output)',
@@ -41,6 +258,7 @@ Key Technological Milestones:
 Furthermore, automotive original equipment manufacturers have accelerated pilot production lines to validate cycle life under extreme ambient temperatures. In conclusion, solid-state batteries are undeniably a game-changer that will shape the mobility landscape for generations.`,
   },
 ];
+
 
 export const PYTHON_SCRIPT_CODE = `# -*- coding: utf-8 -*-
 """KrackAI.ipynb

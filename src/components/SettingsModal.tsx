@@ -36,7 +36,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   const handleProviderSelect = (p: 'gemini' | 'groq' | 'openai') => {
     setProvider(p);
     if (p === 'gemini') {
-      setModel('gemini-3.1-flash-lite');
+      setModel('gemini-3.5-flash');
     } else if (p === 'groq') {
       setModel('llama-3.3-70b-versatile');
     } else if (p === 'openai') {
@@ -48,7 +48,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     onSaveConfig({
       provider,
       apiKey: apiKey.trim(),
-      model: model || (provider === 'gemini' ? 'gemini-3.1-flash-lite' : provider === 'groq' ? 'llama-3.3-70b-versatile' : 'gpt-4o-mini'),
+      model: model || (provider === 'gemini' ? 'gemini-3.5-flash' : provider === 'groq' ? 'llama-3.3-70b-versatile' : 'gpt-4o-mini'),
     });
     setSavedSuccess(true);
     setTimeout(() => {
@@ -135,8 +135,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             >
               {provider === 'gemini' && (
                 <>
-                  <option value="gemini-3.1-flash-lite">gemini-3.1-flash-lite (Default High Speed)</option>
-                  <option value="gemini-3.8-flash">gemini-3.8-flash (High Intelligence)</option>
+                  <option value="gemini-3.5-flash">gemini-3.5-flash (Standard)</option>
+                  <option value="gemini-3.6-flash">gemini-3.6-flash (Advanced)</option>
+                  <option value="gemini-3.7-flash">gemini-3.7-flash (Dynamic Pro)</option>
                   <option value="gemini-flash-latest">gemini-flash-latest</option>
                 </>
               )}

@@ -16,7 +16,7 @@
     font-family: var(--font-sans);
   }
 
-  /* Light Mode Base - Enforce Crisp Black Text Everywhere */
+  /* Light Mode Base - Crisp Black Text */
   html:not(.dark), html:not(.dark) body {
     background-color: #fbf6ea !important;
     color: #000000 !important;
@@ -28,14 +28,14 @@
     letter-spacing: -0.02em;
   }
 
-  /* In Light Mode, force headings, spans, labels, textareas, inputs to Black unless explicitly colored orange/red/emerald */
+  /* Light mode text crispness */
   html:not(.dark) h1,
   html:not(.dark) h2,
   html:not(.dark) h3,
   html:not(.dark) h4,
   html:not(.dark) label,
-  html:not(.dark) span:not([class*="text--[#fa520f]"]):not([class*="text-rose"]):not([class*="text-emerald"]):not([class*="text-amber"]):not([class*="text-[#d43e02]"]),
-  html:not(.dark) div:not([class*="text--[#fa520f]"]):not([class*="text-rose"]):not([class*="text-emerald"]):not([class*="text-amber"]):not([class*="text-[#d43e02]"]) {
+  html:not(.dark) span:not([class*="text-[#fa520f]"]):not([class*="text-rose"]):not([class*="text-emerald"]):not([class*="text-amber"]):not([class*="text-[#d43e02]"]),
+  html:not(.dark) div:not([class*="text-[#fa520f]"]):not([class*="text-rose"]):not([class*="text-emerald"]):not([class*="text-amber"]):not([class*="text-[#d43e02]"]) {
     color: #000000;
   }
 
@@ -44,7 +44,8 @@
   html:not(.dark) textarea,
   html:not(.dark) select {
     color: #000000 !important;
-    background-color: #f3e7cb !important;
+    background-color: rgba(243, 231, 203, 0.75) !important;
+    backdrop-filter: blur(8px);
     border-color: #d2bf94 !important;
   }
 
@@ -58,7 +59,8 @@
   html.dark textarea,
   html.dark select {
     color: #ffffff !important;
-    background-color: #0e0a0d !important;
+    background-color: rgba(14, 10, 13, 0.75) !important;
+    backdrop-filter: blur(8px);
     border-color: rgba(230, 213, 168, 0.2) !important;
   }
 
@@ -69,102 +71,280 @@
   }
 }
 
-/* Atmospheric Ambient Background Gradients */
+/* =========================================================
+   KEYFRAME ANIMATIONS: Dynamic Mesh, Float & Shimmer
+   ========================================================= */
+@keyframes orbFloat1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(60px, -40px) scale(1.12);
+  }
+  66% {
+    transform: translate(-40px, 30px) scale(0.92);
+  }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-70px, 50px) scale(1.18);
+  }
+  66% {
+    transform: translate(50px, -30px) scale(0.88);
+  }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(45px, 60px) scale(1.15);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes subtleShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.04);
+  }
+}
+
+.animate-orb-1 {
+  animation: orbFloat1 22s ease-in-out infinite;
+}
+
+.animate-orb-2 {
+  animation: orbFloat2 28s ease-in-out infinite;
+}
+
+.animate-orb-3 {
+  animation: orbFloat3 34s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: subtleShimmer 3.5s infinite;
+  pointer-events: none;
+}
+
+/* =========================================================
+   DYNAMIC AMBIENT BACKGROUNDS
+   ========================================================= */
 html.dark .bg-gradient-page {
-  background: 
-    radial-gradient(circle at 50% -5%, rgba(250, 82, 15, 0.25) 0%, rgba(255, 138, 0, 0.12) 35%, rgba(8, 6, 8, 0) 70%),
-    radial-gradient(circle at 90% 40%, rgba(255, 129, 5, 0.08) 0%, rgba(8, 6, 8, 0) 50%),
-    radial-gradient(circle at 10% 80%, rgba(250, 82, 15, 0.08) 0%, rgba(8, 6, 8, 0) 50%),
-    #080608 !important;
+  background-color: #080608 !important;
+  position: relative;
+  overflow-x: hidden;
 }
 
 html:not(.dark) .bg-gradient-page {
-  background: 
-    radial-gradient(circle at 50% -5%, rgba(255, 190, 70, 0.35) 0%, rgba(251, 246, 234, 0.85) 45%, rgba(251, 246, 234, 1) 85%),
-    radial-gradient(circle at 85% 30%, rgba(250, 82, 15, 0.08) 0%, rgba(251, 246, 234, 0) 50%),
-    #fbf6ea !important;
+  background-color: #fbf6ea !important;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Primary CTA Button Utility */
-.btn-mistral {
-  background-color: #fa520f !important;
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  border-radius: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  box-shadow: 0 2px 10px rgba(250, 82, 15, 0.25);
-}
-.btn-mistral:hover {
-  background-color: #cc3a05 !important;
-  box-shadow: 0 4px 16px rgba(204, 58, 5, 0.35);
-  transform: translateY(-1px);
-}
-.btn-mistral:active {
-  background-color: #a82e03 !important;
-  transform: translateY(0);
-}
-
-.btn-mistral-outline {
-  background-color: transparent;
-  color: #fa520f !important;
-  border: 1.5px solid #fa520f !important;
-  font-weight: 700 !important;
-  border-radius: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-html.dark .btn-mistral-outline:hover {
-  background-color: rgba(250, 82, 15, 0.15);
-  color: #ffb83e !important;
-}
-html:not(.dark) .btn-mistral-outline:hover {
-  background-color: #f3e5c0;
-  color: #a02d00 !important;
-}
-
-/* Light / Dark Mode Surface Utility Classes */
-html.dark .surface-card {
-  background-color: #120e11 !important;
-  border: 1px solid rgba(230, 213, 168, 0.18) !important;
+/* =========================================================
+   GLASSMORPHISM & SURFACE STYLES
+   ========================================================= */
+html.dark .surface-card,
+html.dark .glass-card {
+  background: rgba(18, 14, 17, 0.72) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
   color: #ffffff !important;
 }
-html:not(.dark) .surface-card {
-  background-color: #ffffff !important;
-  border: 1px solid #d8c496 !important;
-  color: #000000 !important;
-  box-shadow: 0 2px 12px rgba(40, 25, 10, 0.06);
-}
 
-html.dark .surface-deep {
-  background-color: #0c090b !important;
-  border: 1px solid rgba(230, 213, 168, 0.12) !important;
-  color: #ffffff !important;
-}
-html:not(.dark) .surface-deep {
-  background-color: #f3e7cb !important;
-  border: 1px solid #d8c496 !important;
+html:not(.dark) .surface-card,
+html:not(.dark) .glass-card {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(216, 196, 150, 0.85) !important;
+  box-shadow: 
+    0 10px 30px -5px rgba(60, 40, 10, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8) !important;
   color: #000000 !important;
 }
 
-html.dark .tag-chip {
-  background-color: rgba(255, 240, 194, 0.1) !important;
+html.dark .surface-deep,
+html.dark .glass-deep {
+  background: rgba(12, 9, 11, 0.78) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04) !important;
+  color: #ffffff !important;
+}
+
+html:not(.dark) .surface-deep,
+html:not(.dark) .glass-deep {
+  background: rgba(243, 231, 203, 0.72) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(216, 196, 150, 0.7) !important;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5) !important;
+  color: #000000 !important;
+}
+
+html.dark .tag-chip,
+html.dark .glass-chip {
+  background: rgba(255, 240, 194, 0.08) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   color: #ffd06a !important;
-  border: 1px solid rgba(230, 213, 168, 0.25) !important;
+  border: 1px solid rgba(230, 213, 168, 0.2) !important;
 }
-html:not(.dark) .tag-chip {
-  background-color: #eee0b8 !important;
+
+html:not(.dark) .tag-chip,
+html:not(.dark) .glass-chip {
+  background: rgba(238, 224, 184, 0.75) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   color: #000000 !important;
   border: 1px solid #c4b184 !important;
   font-weight: 700 !important;
+}
+
+/* =========================================================
+   GRADIENT BUTTON ENHANCEMENTS
+   ========================================================= */
+.btn-mistral,
+.btn-gradient {
+  background: linear-gradient(135deg, #fa520f 0%, #ff6e14 48%, #e04406 100%) !important;
+  background-size: 200% 200% !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 
+    0 4px 18px rgba(250, 82, 15, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.btn-mistral:hover,
+.btn-gradient:hover {
+  background-position: right center !important;
+  box-shadow: 
+    0 6px 26px rgba(250, 82, 15, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38) !important;
+  transform: translateY(-1.5px) scale(1.01);
+}
+
+.btn-mistral:active,
+.btn-gradient:active {
+  transform: translateY(0.5px) scale(0.99);
+  box-shadow: 0 2px 10px rgba(250, 82, 15, 0.3) !important;
+}
+
+.btn-mistral-outline {
+  background: rgba(250, 82, 15, 0.06) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: #fa520f !important;
+  border: 1.5px solid rgba(250, 82, 15, 0.45) !important;
+  font-weight: 700 !important;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 10px rgba(250, 82, 15, 0.12);
+}
+
+html.dark .btn-mistral-outline:hover {
+  background: linear-gradient(135deg, rgba(250, 82, 15, 0.22) 0%, rgba(255, 120, 20, 0.15) 100%) !important;
+  border-color: #fa520f !important;
+  color: #ffd06a !important;
+  box-shadow: 0 4px 18px rgba(250, 82, 15, 0.25);
+  transform: translateY(-1px);
+}
+
+html:not(.dark) .btn-mistral-outline:hover {
+  background: linear-gradient(135deg, #f3e2ba 0%, #fae8cc 100%) !important;
+  border-color: #d43e02 !important;
+  color: #a02d00 !important;
+  box-shadow: 0 4px 14px rgba(212, 62, 2, 0.18);
+  transform: translateY(-1px);
+}
+
+/* Radiant glow border */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(250, 82, 15, 0.6), rgba(255, 170, 40, 0.3), rgba(250, 82, 15, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 /* Custom Scrollbars */
@@ -173,13 +353,13 @@ html:not(.dark) .tag-chip {
   height: 6px;
 }
 html.dark ::-webkit-scrollbar-track {
-  background: #080608;
+  background: rgba(8, 6, 8, 0.5);
 }
 html:not(.dark) ::-webkit-scrollbar-track {
-  background: #fbf6ea;
+  background: rgba(251, 246, 234, 0.5);
 }
 html.dark ::-webkit-scrollbar-thumb {
-  background: rgba(250, 82, 15, 0.3);
+  background: rgba(250, 82, 15, 0.4);
   border-radius: 9999px;
 }
 html:not(.dark) ::-webkit-scrollbar-thumb {

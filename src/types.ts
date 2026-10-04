@@ -12,6 +12,33 @@ export interface DetectedMarker {
   count: number;
 }
 
+export interface Humanizer10RulesConfig {
+  rule1_12yoReading: boolean;
+  rule2_antiAcademicCoffeeShop: boolean;
+  rule3_localGeographic: boolean;
+  rule3_targetLocation: string;
+  rule4_contractionsColloquial: boolean;
+  rule5_brandIntegration: boolean;
+  rule5_companyName: string;
+  rule5_companyInfo: string;
+  rule6_nonPushyAuthentic: boolean;
+  rule7_fictionalAnecdotes: boolean;
+  rule7_anecdoteTheme: string;
+  rule8_hookIntroFramework: boolean;
+  rule9_dynamicCadence: boolean;
+  rule10_targetAvatar: boolean;
+  rule10_avatarDescription: string;
+}
+
+export interface RuleComplianceAudit {
+  ruleId: number;
+  title: string;
+  passed: boolean;
+  score: number; // 0-100
+  detail: string;
+  metric?: string;
+}
+
 export interface DetectabilityAnalysis {
   sentenceCount: number;
   wordCount: number;
@@ -24,6 +51,10 @@ export interface DetectabilityAnalysis {
   detectorScores: DetectorScores;
   verdict: string;
   sentenceLengths: number[];
+  ruleAudits?: RuleComplianceAudit[];
+  readingGradeLevel?: string;
+  contractionCount?: number;
+  bannedAcademicCount?: number;
 }
 
 export interface ResearchAgentStatus {
@@ -48,3 +79,4 @@ export interface ResearchPipelineResult {
   finalAnalysis: DetectabilityAnalysis;
   agents: { name: string; status: string; detail: string }[];
 }
+
