@@ -233,6 +233,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             >
                             {provider === 'gemini' && (
                 <>
+                  <option style={{ background: darkMode ? '#1c1917' : '#ffffff', color: darkMode ? '#ffffff' : '#1c1917' }} value="gemini-3.5-flash-lite">gemini-3.5-flash-lite (Lite / Fast)</option>
                   <option style={{ background: darkMode ? '#1c1917' : '#ffffff', color: darkMode ? '#ffffff' : '#1c1917' }} value="gemini-3.5-flash">gemini-3.5-flash (Standard)</option>
                   <option style={{ background: darkMode ? '#1c1917' : '#ffffff', color: darkMode ? '#ffffff' : '#1c1917' }} value="gemini-3.6-flash">gemini-3.6-flash (Advanced)</option>
                   <option style={{ background: darkMode ? '#1c1917' : '#ffffff', color: darkMode ? '#ffffff' : '#1c1917' }} value="gemini-3.7-flash">gemini-3.7-flash (Dynamic Pro)</option>

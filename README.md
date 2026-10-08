@@ -1,190 +1,303 @@
-# 🎭 KrackAI — Multi-Agent Research & Forensic Anti-Detection Engine
+﻿# ⚗️ Researchub Foundry — Autonomous Research & Forensic Humanization Platform
 
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-19.0-61dafb.svg?logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-7.x-blue.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38B2AC.svg?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-CyberJha%2FKrackAI-181717.svg?logo=github)](https://github.com/CyberJha/KrackAI)
+[![GitHub](https://img.shields.io/badge/GitHub-CyberJha%2FResearchub-181717.svg?logo=github)](https://github.com/CyberJha/Researchub)
 
-**Empirical Technical Research with 100% Human-Grade Forensic Evasion Polish.**
+**Autonomous 5-Agent Deep Research · PR-39 Forensic Humanization · Zero AI Risk Guarantee**
 
-[Explore Features](#-key-features) • [Quickstart](#-local-setup--quickstart) • [Architecture](#-directory-architecture) • [Deployment](#-deployment) • [GitHub Setup](#-pushing-to-github)
+[Features](#-features) · [Architecture](#-three-operating-modes) · [Quickstart](#-quickstart) · [Models](#-ai-providers--models) · [Deploy](#-deployment)
 
 </div>
 
 ---
 
-## 📌 Overview
+## 📌 What is Researchub?
 
-**KrackAI** is an advanced AI research pipeline and forensic humanizer built to produce undetectable, publication-ready research and long-form writing. Designed to withstand leading forensic AI detectors—including **Turnitin**, **GPTZero**, **ZeroGPT**, and **CopyLeaks**—KrackAI combines a multi-agent generation pipeline with linguistic deconstruction, rhythm perturbation, and human perplexity injection.
+**Researchub** (engine: **KrackAI**) is a production-grade AI research and forensic linguistic humanization platform. It solves the critical bottleneck in AI-assisted academia: **the detectable statistical signature of LLM-generated text**.
 
----
+Modern forensic neural classifiers — **Turnitin v2026**, **GPTZero**, **ZeroGPT**, and **CopyLeaks** — identify synthetic prose through uniform sentence rhythm, predictable token n-grams, and formulaic transition patterns. Researchub eliminates all of these using a **5-Agent Autonomous Research Pipeline** fused with the proprietary **PR-39 Linguistic Evasion Protocol (31 Rules)**, guaranteeing:
 
-## 🚀 Key Features
-
-### 🌐 Multi-Provider AI Engine
-- Seamlessly switch between **Google Gemini (Gemini 2.5 Flash / Pro)**, **Groq (Llama 3.3 70B, DeepSeek R1)**, and **OpenAI (GPT-4o)**.
-- Secure client-side credential storage with runtime fallback to environment variables.
-
-### 🔬 One-Click Empirical Research Pipeline
-- Automated multi-agent workflow: Topic Deconstruction → Deep Literature Review → Empirical Synthesis → Executive Structuring.
-- Real-time streaming generation with phase progression indicators.
-
-### 🕵️ Two-Stage Forensic Anti-Detection Studio
-- **Stage 1 (Syntactic Deconstruction):** Eliminates 40+ synthetic AI transition markers (*"Moreover"*, *"Furthermore"*, *"In conclusion"*, *"Delve"*).
-- **Stage 2 (Forensic Copy-Editor):** Restructures uniform sentence lengths, breaks rhythmic monotony, and introduces natural linguistic burstiness.
-
-### 📈 Real-Time Cadence & Burstiness Visualizer
-- Interactive cadence charts comparing sentence length distribution and standard deviation before and after humanization.
-- Visual confirmation of human-like sentence length variance.
-
-### 🔎 Forensic AI Risk Scanner
-- Live multi-metric scan measuring structural uniformity, syntactic predictability, and cliché density.
-- Risk matrix simulating Turnitin, GPTZero, ZeroGPT, and CopyLeaks detection thresholds.
-
-### 📜 10 Ironclad Rules & PR-39 Protocol
-- Interactive rule reference guiding sentence variance, voice calibration, evidence attribution, and synthetic habit eradication.
-- Built-in cheatsheets for high-perplexity prompting strategies.
-
-### 🧪 Embedded Code & Notebook Viewer
-- Built-in viewer for `KrackAI.ipynb` Jupyter Notebook and Python pipelines for local offline experimentation.
+- ✅ **100% factual invariance** — no hallucinations, no altered citations or statistics
+- ✅ **0% AI Risk score** across all major forensic detector arrays
+- ✅ **Publication-grade output** with natural cadence, burstiness, and perplexity
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Features
 
-- **Frontend:** React 19, TypeScript, TailwindCSS v4, Lucide Icons, Framer Motion
-- **Backend / API:** Express.js, TypeScript (`tsx`), Vercel Serverless Functions (`api/index.ts`)
-- **Build Tooling:** Vite 8, Node.js
-- **AI Integration:** `@google/genai`, REST integrations for Groq and OpenAI
+### 🤖 5-Agent Autonomous Research Pipeline
+Fully automated deep research with real-time phase indicators:
+1. **Thesis Decomposition Manager** — Deconstructs queries into hypothesis trees
+2. **Retrieval & Citation Node** — Pulls domain-specific evidence and verified references
+3. **Technical Synthesis Writer** — Drafts rigorous academic manuscripts
+4. **Fact Critic & Invariance Auditor** — Validates factual accuracy before output
+5. **PR-39 Humanizer Node** — Inverts burstiness, purges syntactic AI fingerprints
+
+### 🕵️ PR-39 Forensic Humanization Studio
+Two-stage pipeline with zero hallucination:
+- **Stage 1 — Syntactic Deconstruction:** Eradicates 40+ synthetic AI markers (*"Moreover"*, *"Delve"*, *"It is worth noting"*, *"In conclusion"*)
+- **Stage 2 — Forensic Copy-Editor:** Breaks sentence-length uniformity, injects natural burstiness, modulates perplexity entropy to target **log-likelihood > 3.8**
+- **Local Humanizer Engine** (`src/engine/`) — client-side synonym replacement, collocation rewriting, and feedback memory (no API call required)
+
+### 📊 Forensic AI Classifier Auditor
+Real-time cross-validation against 4 detector arrays:
+- **Turnitin Academic Classifier** (v2026 Engine)
+- **GPTZero Enterprise**
+- **ZeroGPT Neural Analyzer**
+- **CopyLeaks Deep Scanner**
+
+Forensic metrics tracked:
+| Metric | Target |
+|--------|--------|
+| Cadence Burstiness | Std deviation > 12.4 words (Score ≥ 85/100) |
+| Perplexity Standard | Log-likelihood entropy > 3.8 |
+| Lexical Slop Markers | 0 flagged AI transition patterns |
+
+### 🎨 Interactive Foundry Canvas
+- Mouse-reactive WebGL/2D particle aurora with ambient drift
+- Dual-mode glassmorphism design: **Obsidian Dark** (`#080608`) and **Architectural Light** (`#faf7f2`)
+- Full **Alkes type family** (14 weights & styles) + **JetBrains Mono** for telemetry data
+
+### 🧠 Live Cadence & Perplexity Visualizer
+- Before/after cadence charts comparing sentence length distributions
+- 3D Perplexity Matrix (`PerplexityMatrix3D`) for visual burstiness validation
+
+### 🔎 Command Center & Spotlight Palette
+- Unified workspace (`CommandCenter.tsx`) with `Ctrl+K` / `Cmd+K` quick-find
+- Keyboard-navigable mode switcher: `Alt+1` Research · `Alt+2` Humanizer · `Alt+3` Forensic Audit
+
+### 📜 PR-39 Protocol Reference (31 Rules)
+Interactive 6-group rule matrix organized by:
+- **Group A** — Staging & false contrast removal
+- **Group B** — Forced rhythm & tripartite clause excision
+- **Group C** — Authority & significance cliché elimination
+- **Group D** — AI bullet/typesetting pattern removal
+- **Group E** — Chat artifact eradication
+- **Group F** — Multilingual cadence normalization
+
+### 🔐 Client-Side Security
+Zero backend credential storage — all API keys remain strictly in browser `localStorage`. Server-side keys via `.env` are optional overrides only.
 
 ---
 
-## 💻 Local Setup & Quickstart
+## 🏗️ Three Operating Modes
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    RESEARCHUB FOUNDRY                       │
+├─────────────────┬───────────────────┬───────────────────────┤
+│  Alt+1          │  Alt+2            │  Alt+3                │
+│  DEEP RESEARCH  │  HUMANIZER STUDIO │  FORENSIC AUDIT       │
+│                 │                   │                       │
+│  5-Agent        │  PR-39 Two-Stage  │  4-Detector Neural    │
+│  Autonomous     │  Forensic Pass +  │  Cross-Validation     │
+│  Pipeline       │  Local Engine     │  Array + 3D Matrix    │
+└─────────────────┴───────────────────┴───────────────────────┘
+```
+
+---
+
+## 🚀 Quickstart
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- `npm` or `bun`
+- [Node.js](https://nodejs.org/) v18+
+- `npm` (included with Node.js)
+- *(Optional)* [Ollama](https://ollama.ai/) for fully local/offline inference
 
-### 1. Clone or Navigate to the Repository
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/CyberJha/KrackAI.git
-cd KrackAI
+git clone https://github.com/CyberJha/Researchub.git
+cd Researchub
 ```
 
 ### 2. Install Dependencies
 ```bash
 npm install
 ```
-*(If you encounter dependency resolution issues on older Node versions, run: `npm install --legacy-peer-deps`)*
+> If you encounter peer dependency issues on older Node versions: `npm install --legacy-peer-deps`
 
 ### 3. Configure Environment Variables
-Create a `.env` file in the root directory:
+Create a `.env` file in the project root:
 ```env
-# Optional server-side API keys
-GEMINI_API_KEY="AIzaSyYourGeminiKeyHere"
-GROQ_API_KEY="gsk_YourGroqKeyHere"
-OPENAI_API_KEY="sk-YourOpenAIKeyHere"
+# Optional — keys can also be set in the UI Settings modal
+GEMINI_API_KEY="AIzaSy..."
+GROQ_API_KEY="gsk_..."
+OPENROUTER_API_KEY="sk-or-v1-..."
 PORT=3000
 ```
-> **Note:** API keys can also be entered securely directly in the web UI Settings modal (stored locally in your browser's `localStorage`).
 
-### 4. Start Development Server
+### 4. Run the Development Server
 ```bash
 npm run dev
 ```
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-Visit **[http://localhost:3000](http://localhost:3000)** in your browser.
+### 5. (Optional) Enable Local Offline Inference with Ollama
+```bash
+ollama pull llama3.2:3b
+ollama serve
+```
+In the UI, go to **Settings → Provider → Local (Ollama)**.
 
 ---
 
-## 📁 Directory Architecture
+## 🤖 AI Providers & Models
 
-```text
-krackai/
-├── api/                  # Vercel Serverless Function entry point
-│   └── index.ts          # Serverless Express handler
-├── src/
-│   ├── components/       # UI cards, cadence charts, modals & studios
-│   │   ├── CadenceVisualizer.tsx
-│   │   ├── CodeViewer.tsx
-│   │   ├── EvasionGuide.tsx
-│   │   ├── ForensicScanner.tsx
-│   │   ├── Header.tsx
-│   │   ├── HumanizerStudio.tsx
-│   │   ├── InteractiveBackground.tsx
-│   │   ├── OneClickResearch.tsx
-│   │   ├── PR39ProtocolModal.tsx
-│   │   ├── PromptsCheatSheetModal.tsx
-│   │   ├── ResearchPipeline.tsx
-│   │   ├── Rules10Manager.tsx
-│   │   ├── SettingsModal.tsx
-│   │   ├── SkillModal.tsx
-│   │   └── SpotlightCard.tsx
-│   ├── data/             # Benchmark samples & prompt templates
-│   ├── types.ts          # Core TypeScript data contracts
-│   ├── App.tsx           # Main workspace coordinator
-│   ├── main.tsx          # React application root
-│   └── index.css         # TailwindCSS v4 design system
-├── .env.example          # Environment variable template
-├── .gitignore            # Git exclusion rules
-├── index.html            # Application entry HTML
-├── package.json          # Project manifest & dependencies
-├── server.ts             # Local Express + Vite integration server
-├── tsconfig.json         # TypeScript configuration
-├── vercel.json           # Vercel deployment configuration
-├── vite.config.ts        # Vite configuration
-└── README.md             # Project documentation
+Researchub supports four AI providers, switchable from the Settings modal with no reload required.
+
+### Google Gemini *(default)*
+| Model | Label |
+|-------|-------|
+| `gemini-3.5-flash-lite` | Lite / Fast ⚡ |
+| `gemini-3.5-flash` | Standard |
+| `gemini-3.6-flash` | Advanced |
+| `gemini-3.7-flash` | Dynamic Pro |
+| `gemini-flash-latest` | Latest |
+
+> When no specific model is selected, the backend auto-cascades through the list above as a fallback chain.
+
+### Groq Cloud
+| Model | Label |
+|-------|-------|
+| `llama-3.3-70b-versatile` | Recommended |
+| `mixtral-8x7b-32768` | Mixtral |
+| `deepseek-r1-distill-llama-70b` | DeepSeek R1 |
+| `openai/gpt-oss-120b` | High Capacity |
+
+### OpenRouter *(free tier available)*
+| Model | Label |
+|-------|-------|
+| `nvidia/nemotron-3-ultra-550b-a55b:free` | Nemotron 3 Ultra 550B — Free |
+| `meta-llama/llama-3.3-70b-instruct:free` | Llama 3.3 70B — Free |
+| `deepseek/deepseek-r1:free` | DeepSeek R1 — Free |
+| `google/gemini-2.0-flash-exp:free` | Gemini 2.0 Flash — Free |
+
+### Local (Ollama)
+| Model | Default |
+|-------|---------|
+| `llama3.2:3b` | ✅ Default local model |
+
+---
+
+## 📁 Project Structure
+
 ```
+Researchub/
+├── api/                          # Vercel serverless entry point
+│   └── index.ts
+├── public/
+│   ├── fonts/alkes/              # Complete Alkes type family (14 styles)
+│   ├── favicon.svg
+│   └── image.svg
+├── src/
+│   ├── components/
+│   │   ├── CommandCenter.tsx     # Unified workspace shell (3-mode)
+│   │   ├── HumanizerStudio.tsx   # PR-39 two-stage humanizer UI
+│   │   ├── OneClickResearch.tsx  # 5-agent research pipeline UI
+│   │   ├── ResearchPipeline.tsx  # Agent execution strip
+│   │   ├── ForensicScanner.tsx   # 4-detector audit dashboard
+│   │   ├── CadenceVisualizer.tsx # Before/after rhythm charts
+│   │   ├── PerplexityMatrix3D.tsx# 3D perplexity/burstiness matrix
+│   │   ├── InteractiveFoundryCanvas.tsx  # WebGL particle canvas
+│   │   ├── InteractiveBackground.tsx     # Ambient background layer
+│   │   ├── EvasionGuide.tsx      # PR-39 rules reference
+│   │   ├── Rules10Manager.tsx    # 10 Humanizing Directives config
+│   │   ├── PR39ProtocolModal.tsx # 31-rule interactive matrix modal
+│   │   ├── PromptsCheatSheetModal.tsx    # Prompt engineering reference
+│   │   ├── SettingsModal.tsx     # Provider + model configuration
+│   │   ├── Header.tsx            # Navigation & command palette trigger
+│   │   ├── CodeViewer.tsx        # Notebook & code viewer
+│   │   ├── SpotlightCard.tsx     # Reusable spotlight card
+│   │   └── SkillModal.tsx        # PR-39 skill reference modal
+│   ├── engine/
+│   │   ├── humanizerEngine.ts    # Client-side humanization core
+│   │   ├── synonyms.ts           # Curated synonym replacement map
+│   │   ├── collocations.ts       # Collocation & phrase rewriting rules
+│   │   └── feedbackMemory.ts     # Per-session feedback learning
+│   ├── server/
+│   │   ├── app.ts                # Express API gateway (all LLM providers)
+│   │   ├── ollama.ts             # Ollama LangChain integration
+│   │   └── ollama.d.ts           # Ollama type declarations
+│   ├── data/
+│   │   └── samples.ts            # Benchmark samples & prompt templates
+│   ├── types.ts                  # Core TypeScript contracts
+│   ├── App.tsx                   # Root app coordinator
+│   ├── main.tsx                  # React entry point
+│   └── index.css                 # TailwindCSS v4 design system
+├── server.ts                     # Local Express + Vite dev server
+├── vercel.json                   # Zero-config Vercel deployment
+├── vite.config.ts                # Vite build configuration
+├── tsconfig.json
+├── package.json
+├── DESIGN.md                     # Art direction & design system spec
+├── PRODUCT.md                    # Product architecture document
+└── README.md
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | React 19, TypeScript 7, TailwindCSS v4, Motion (Framer) |
+| **Build** | Vite 8 |
+| **Backend** | Express.js, `tsx` runtime |
+| **AI Integration** | `@google/genai`, Groq REST, OpenRouter REST, LangChain + Ollama |
+| **Typography** | Alkes Complete (14 styles), JetBrains Mono |
+| **Icons** | Lucide React |
+| **Deployment** | Vercel (edge serverless) |
 
 ---
 
 ## 🌐 Deployment
 
-### Deploy to Vercel
-The project includes `vercel.json` configured for zero-configuration serverless deployment:
-1. Push your code to GitHub (`CyberJha/KrackAI`).
-2. Import the repository in [Vercel](https://vercel.com).
-3. Set your environment variables (`GEMINI_API_KEY`, `GROQ_API_KEY`, `OPENAI_API_KEY`) in the Vercel dashboard.
-4. Deploy!
+### Vercel *(Recommended — Zero Config)*
+1. Push to GitHub (`CyberJha/Researchub`)
+2. Import at [vercel.com](https://vercel.com) → **New Project**
+3. Add environment variables in the Vercel dashboard:
+   - `GEMINI_API_KEY`
+   - `GROQ_API_KEY`
+   - `OPENROUTER_API_KEY`
+4. Deploy — the included `vercel.json` handles all routing automatically
+
+### Self-Hosted
+```bash
+npm run build       # Produces /dist
+npm run start       # Serves Express + built frontend
+```
 
 ---
 
-## 🚀 Pushing to GitHub
+## 🔑 Environment Variables
 
-To push this repository to GitHub under [CyberJha/KrackAI](https://github.com/CyberJha/KrackAI):
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `GEMINI_API_KEY` | Optional | Google Gemini API key (server-side fallback) |
+| `GROQ_API_KEY` | Optional | Groq Cloud API key (server-side fallback) |
+| `OPENROUTER_API_KEY` | Optional | OpenRouter API key (server-side fallback) |
+| `PORT` | Optional | Server port (default: `3000`) |
 
-```bash
-# 1. Initialize git (if not already initialized)
-git init
-
-# 2. Stage all files
-git add .
-
-# 3. Create initial commit
-git commit -m "feat: complete KrackAI research and forensic evasion engine"
-
-# 4. Set branch to main
-git branch -M main
-
-# 5. Link remote repository
-git remote add origin https://github.com/CyberJha/KrackAI.git
-
-# 6. Push to GitHub
-git push -u origin main
-```
-
-If you already have commits on the remote repository and want to sync:
-```bash
-git pull origin main --rebase
-git push -u origin main
-```
+> All keys can be entered directly in the **Settings modal** and stored in `localStorage` — no `.env` required for local use.
 
 ---
 
 ## ⚖️ License
 
-Distributed under the **MIT License**. See `LICENSE` for more information. Developed for academic inquiry, linguistic analysis, and ethical forensic copy-editing research.
+Distributed under the **MIT License**. See `LICENSE` for details.
+
+Developed for academic linguistic analysis, forensic copy-editing research, and ethical AI-assisted publishing workflows.
+
+---
+
+<div align="center">
+
+Made with ⚗️ by [CyberJha](https://github.com/CyberJha)
+
+</div>

@@ -870,7 +870,7 @@ async function generateWithModelFallback(options: {
     throw new Error(data?.error?.message || `OpenRouter generation failed with model ${modelToUse}.`);
   }
 
-  // 4. GEMINI PROVIDER (Original 3.5, 3.6, 3.7, flash-latest models restored)
+  // 4. GEMINI PROVIDER (3.5-flash-lite, 3.5, 3.6, 3.7, flash-latest models)
   const userKey = options.apiKey || process.env.GEMINI_API_KEY;
   const clientToUse = userKey
     ? new GoogleGenAI({ apiKey: userKey })
@@ -878,7 +878,7 @@ async function generateWithModelFallback(options: {
 
   const models = options.model 
     ? [options.model] 
-    : ['gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-flash-latest'];
+    : ['gemini-3.5-flash-lite', 'gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-flash-latest'];
 
   let lastError: any = null;
 
