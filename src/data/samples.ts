@@ -321,12 +321,12 @@ LLM_PROVIDER = os.getenv("LLM_PROVIDER", "gemini")  # "gemini" or "groq"
 try:
     from langchain_google_genai import ChatGoogleGenerativeAI
     gemini_llm = ChatGoogleGenerativeAI(
-        model="gemini-3.6-flash",
+        model="gemini-3.5-flash",
         temperature=0,
         max_retries=2
     )
     gemini_humanizer_llm = ChatGoogleGenerativeAI(
-        model="gemini-3.6-flash",
+        model="gemini-3.5-flash",
         temperature=0.88,
         max_retries=2
     )

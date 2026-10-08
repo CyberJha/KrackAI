@@ -19,17 +19,17 @@ export const CadenceVisualizer: React.FC<CadenceVisualizerProps> = ({
   const globalMax = Math.max(maxLenBefore, maxLenAfter, 50);
 
   return (
-    <div className="surface-card rounded-3xl p-6 border dark:border-white/10 border-[#d8c496] glass-card shadow-xl space-y-5">
+    <div className="surface-card rounded-3xl p-6 border dark:border-white/10 border-[#CE4E69] glass-card shadow-xl space-y-5">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono font-bold">
         <div className="flex items-center space-x-2.5 dark:text-white text-black">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#fa520f] to-[#ff8a00] flex items-center justify-center text-white shadow-md shadow-[#fa520f]/30">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#CE4E69] to-[#D96B82] flex items-center justify-center text-white shadow-md shadow-[#CE4E69]/30">
             <Waves className="w-4 h-4 animate-pulse" />
           </div>
           <div>
             <h4 className="text-base font-serif font-bold dark:text-white text-black flex items-center space-x-2">
               <span>Sentence Cadence &amp; Soundwave Spectrum</span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#fa520f]/15 text-[#fa520f] border border-[#fa520f]/30">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#CE4E69]/15 text-[#CE4E69] border border-[#CE4E69]/30">
                 Interactive Rhythm
               </span>
             </h4>
@@ -54,7 +54,7 @@ export const CadenceVisualizer: React.FC<CadenceVisualizerProps> = ({
       {/* Visualizer Columns */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs font-mono font-bold">
         {/* Before Cadence (Flat AI) */}
-        <div className="surface-deep rounded-2xl p-4 space-y-3 border dark:border-white/10 border-[#d8c496] shadow-inner relative overflow-hidden group">
+        <div className="surface-deep rounded-2xl p-4 space-y-3 border dark:border-white/10 border-[#CE4E69] shadow-inner relative overflow-hidden group">
           <div className="flex items-center justify-between dark:text-white text-black font-bold">
             <span className="flex items-center space-x-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
@@ -97,7 +97,7 @@ export const CadenceVisualizer: React.FC<CadenceVisualizerProps> = ({
         </div>
 
         {/* After Cadence (Human Spiky Burstiness) */}
-        <div className="surface-deep rounded-2xl p-4 space-y-3 border dark:border-white/10 border-[#d8c496] shadow-inner relative overflow-hidden group">
+        <div className="surface-deep rounded-2xl p-4 space-y-3 border dark:border-white/10 border-[#CE4E69] shadow-inner relative overflow-hidden group">
           <div className="flex items-center justify-between dark:text-white text-black font-bold">
             <span className="flex items-center space-x-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -128,7 +128,7 @@ export const CadenceVisualizer: React.FC<CadenceVisualizerProps> = ({
                     </div>
                     <div
                       style={{ height: `${heightPercent}%` }}
-                      className="w-full bg-gradient-to-t from-emerald-600 via-emerald-400 to-[#ffd900] rounded-t-md transition-all duration-300 group-hover/bar:brightness-125 shadow-md shadow-emerald-500/30"
+                      className="w-full bg-gradient-to-t from-emerald-600 via-emerald-400 to-[#E8899C] rounded-t-md transition-all duration-300 group-hover/bar:brightness-125 shadow-md shadow-emerald-500/30"
                     />
                   </div>
                 );
@@ -136,7 +136,7 @@ export const CadenceVisualizer: React.FC<CadenceVisualizerProps> = ({
             )}
           </div>
           <div className="text-[11px] dark:text-emerald-400 text-emerald-800 text-center font-sans font-bold flex items-center justify-center space-x-1">
-            <Sparkles className="w-3 h-3 text-[#ffd900]" />
+            <Sparkles className="w-3 h-3 text-[#E8899C]" />
             <span>High variance: Short 3–6 word punches blended with compound 28+ word narrative clauses.</span>
           </div>
         </div>

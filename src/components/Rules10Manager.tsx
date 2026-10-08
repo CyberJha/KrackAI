@@ -28,7 +28,7 @@ interface Rules10ManagerProps {
   config: Humanizer10RulesConfig;
   onChange: (newConfig: Humanizer10RulesConfig) => void;
   ruleAudits?: RuleComplianceAudit[];
-  onOpenCheatSheet: () => void;
+  onOpenCheatSheet?: () => void;
   onOpenSkillModal?: () => void;
 }
 
@@ -102,26 +102,26 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
 
   const getRuleIcon = (id: number) => {
     switch (id) {
-      case 1: return <Baby className="w-4 h-4 text-[#fa520f]" />;
-      case 2: return <Coffee className="w-4 h-4 text-[#fa520f]" />;
-      case 3: return <MapPin className="w-4 h-4 text-[#fa520f]" />;
-      case 4: return <MessageSquare className="w-4 h-4 text-[#fa520f]" />;
-      case 5: return <Building2 className="w-4 h-4 text-[#fa520f]" />;
-      case 6: return <HeartHandshake className="w-4 h-4 text-[#fa520f]" />;
-      case 7: return <Sparkles className="w-4 h-4 text-[#fa520f]" />;
-      case 8: return <Zap className="w-4 h-4 text-[#fa520f]" />;
-      case 9: return <Activity className="w-4 h-4 text-[#fa520f]" />;
-      case 10: return <UserCheck className="w-4 h-4 text-[#fa520f]" />;
-      default: return <Sliders className="w-4 h-4 text-[#fa520f]" />;
+      case 1: return <Baby className="w-4 h-4 text-[#CE4E69]" />;
+      case 2: return <Coffee className="w-4 h-4 text-[#CE4E69]" />;
+      case 3: return <MapPin className="w-4 h-4 text-[#CE4E69]" />;
+      case 4: return <MessageSquare className="w-4 h-4 text-[#CE4E69]" />;
+      case 5: return <Building2 className="w-4 h-4 text-[#CE4E69]" />;
+      case 6: return <HeartHandshake className="w-4 h-4 text-[#CE4E69]" />;
+      case 7: return <Sparkles className="w-4 h-4 text-[#CE4E69]" />;
+      case 8: return <Zap className="w-4 h-4 text-[#CE4E69]" />;
+      case 9: return <Activity className="w-4 h-4 text-[#CE4E69]" />;
+      case 10: return <UserCheck className="w-4 h-4 text-[#CE4E69]" />;
+      default: return <Sliders className="w-4 h-4 text-[#CE4E69]" />;
     }
   };
 
   return (
-    <div className="surface-card rounded-3xl border dark:border-white/10 border-[#d8c496] overflow-hidden transition-all duration-300 glass-card shadow-xl">
+    <div className="surface-card rounded-3xl border dark:border-white/10 border-[#CE4E69] overflow-hidden transition-all duration-300 glass-card shadow-xl">
       {/* Header Bar */}
-      <div className="p-4 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-3 border-b dark:border-white/10 border-[#d8c496] surface-deep">
+      <div className="p-4 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-3 border-b dark:border-white/10 border-[#CE4E69] surface-deep">
         <div className="flex items-center space-x-3 cursor-pointer select-none" onClick={() => setIsExpanded(!isExpanded)}>
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#fa520f]/20 to-[#ff8a00]/10 flex items-center justify-center text-[#fa520f] border border-[#fa520f]/30 shadow-sm">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#CE4E69]/20 to-[#D96B82]/10 flex items-center justify-center text-[#CE4E69] border border-[#CE4E69]/30 shadow-sm">
             <Sliders className="w-5 h-5" />
           </div>
           <div>
@@ -129,7 +129,7 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
               <h3 className="font-serif font-bold text-base sm:text-lg dark:text-white text-black">
                 10 Humanizing Agent Directives
               </h3>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-extrabold bg-gradient-to-r from-[#fa520f] to-[#ff6a00] text-white shadow-sm shadow-[#fa520f]/30">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-extrabold bg-gradient-to-r from-[#CE4E69] to-[#D96B82] text-white shadow-sm shadow-[#CE4E69]/30">
                 {activeRulesCount}/10 Active
               </span>
             </div>
@@ -143,16 +143,15 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
         <div className="flex items-center flex-wrap gap-2">
           {/* Preset Buttons */}
           <div className="flex items-center space-x-1.5 text-xs font-mono">
-            <span className="text-black dark:text-[#ffd06a] font-bold hidden sm:inline">Presets:</span>
+            <span className="text-black dark:text-[#E8899C] font-bold hidden sm:inline">Presets:</span>
             {SAMPLE_10_RULE_PRESETS.map((p) => (
               <button
                 key={p.id}
                 onClick={() => handleApplyPreset(p.id)}
-                className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition-all hover:scale-105 cursor-pointer shadow-sm ${
-                  selectedPresetId === p.id
-                    ? 'bg-gradient-to-r from-[#fa520f] to-[#ff6a00] text-white border-[#fa520f]'
-                    : 'tag-chip text-black dark:text-[#ffd06a] hover:border-[#fa520f]'
-                }`}
+                className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition-all hover:scale-105 cursor-pointer shadow-sm ${selectedPresetId === p.id
+                    ? 'bg-gradient-to-r from-[#CE4E69] to-[#D96B82] text-white border-[#CE4E69]'
+                    : 'tag-chip text-black dark:text-[#E8899C] hover:border-[#CE4E69]'
+                  }`}
                 title={p.description}
               >
                 {p.name.split(' ')[0]}
@@ -162,16 +161,16 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
 
           <button
             onClick={onOpenCheatSheet}
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border text-xs font-mono font-bold dark:bg-white/5 bg-black/5 hover:bg-[#fa520f]/15 dark:text-white text-black border-[#d8c496] dark:border-white/10 transition-all hover:scale-105 cursor-pointer shadow-sm"
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border text-xs font-mono font-bold dark:bg-white/5 bg-black/5 hover:bg-[#CE4E69]/15 dark:text-white text-black border-[#CE4E69] dark:border-white/10 transition-all hover:scale-105 cursor-pointer shadow-sm"
             title="View full prompt instructions and copy cheatsheet"
           >
-            <HelpCircle className="w-3.5 h-3.5 text-[#fa520f]" />
+            <HelpCircle className="w-3.5 h-3.5 text-[#CE4E69]" />
             <span>Prompt Docs</span>
           </button>
 
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="p-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-[#fa520f] cursor-pointer"
+            className="p-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-[#CE4E69] cursor-pointer"
             aria-label="Toggle drawer"
           >
             {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -183,15 +182,14 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
       {isExpanded && (
         <div className="p-4 sm:p-6 space-y-6">
           {/* Sub Navigation */}
-          <div className="flex items-center justify-between border-b dark:border-[#e6d5a8]/15 border-[#d8c496] pb-3 text-xs font-mono">
+          <div className="flex items-center justify-between border-b dark:border-[#CE4E69]/15 border-[#CE4E69] pb-3 text-xs font-mono">
             <div className="flex space-x-2">
               <button
                 onClick={() => setActiveTab('matrix')}
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
-                  activeTab === 'matrix'
-                    ? 'bg-[#fa520f] text-white font-bold'
-                    : 'dark:text-white text-black hover:bg-[#eee0b8] dark:hover:bg-white/5'
-                }`}
+                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${activeTab === 'matrix'
+                    ? 'bg-[#CE4E69] text-white font-bold'
+                    : 'dark:text-white text-black hover:bg-[#f5f0e8] dark:hover:bg-white/5'
+                  }`}
               >
                 <Sliders className="w-3.5 h-3.5" />
                 <span>10 Directives Matrix</span>
@@ -199,11 +197,10 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
 
               <button
                 onClick={() => setActiveTab('prompt_preview')}
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
-                  activeTab === 'prompt_preview'
-                    ? 'bg-[#fa520f] text-white font-bold'
-                    : 'dark:text-white text-black hover:bg-[#eee0b8] dark:hover:bg-white/5'
-                }`}
+                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${activeTab === 'prompt_preview'
+                    ? 'bg-[#CE4E69] text-white font-bold'
+                    : 'dark:text-white text-black hover:bg-[#f5f0e8] dark:hover:bg-white/5'
+                  }`}
               >
                 <Eye className="w-3.5 h-3.5" />
                 <span>Compiled System Prompt</span>
@@ -224,9 +221,8 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
           {activeTab === 'matrix' ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* RULE 1 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule1_12yoReading ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule1_12yoReading ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(1)}
@@ -239,7 +235,7 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule1_12yoReading')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
                 <p className="text-xs dark:text-white/80 text-black leading-relaxed">
@@ -248,9 +244,8 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
               </div>
 
               {/* RULE 2 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule2_antiAcademicCoffeeShop ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule2_antiAcademicCoffeeShop ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(2)}
@@ -263,7 +258,7 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule2_antiAcademicCoffeeShop')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
                 <p className="text-xs dark:text-white/80 text-black leading-relaxed">
@@ -272,9 +267,8 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
               </div>
 
               {/* RULE 3 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule3_localGeographic ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule3_localGeographic ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(3)}
@@ -287,30 +281,29 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule3_localGeographic')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
                 <div className="space-y-1.5 mt-2">
-                  <label className="text-[11px] font-mono font-bold dark:text-[#ffd06a] text-[#52391e]">Target Region / City / Landmark:</label>
+                  <label className="text-[11px] font-mono font-bold dark:text-[#E8899C] text-[#7a6b5a]">Target Region / City / Landmark:</label>
                   <input
                     type="text"
                     value={config.rule3_targetLocation}
                     onChange={(e) => handleTextChange('rule3_targetLocation', e.target.value)}
                     placeholder="e.g. Austin & Hill Country, Denver, Pacific Northwest"
                     disabled={!config.rule3_localGeographic}
-                    className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-black border dark:border-[#e6d5a8]/15 border-[#d8c496] focus:outline-none focus:border-[#fa520f]"
+                    className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-[#1a1424] border dark:border-[#CE4E69]/15 border-[#CE4E69]/15 focus:outline-none focus:border-[#CE4E69]"
                   />
                 </div>
               </div>
 
               {/* RULE 4 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule4_contractionsColloquial ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule4_contractionsColloquial ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(4)}
-                    <span className="font-bold text-sm dark:text-white text-black">4. Contractions & Colloquialisms</span>
+                    <span className="font-bold text-sm dark:text-white text-[#1a1424]">4. Contractions & Colloquialisms</span>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input
@@ -319,22 +312,21 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule4_contractionsColloquial')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
-                <p className="text-xs dark:text-white/80 text-black leading-relaxed">
+                <p className="text-xs dark:text-white/80 text-[#1a1424]/80 leading-relaxed">
                   "Use contractions (it's, don't, we've), colloquialisms, and approachable language throughout."
                 </p>
               </div>
 
               {/* RULE 5 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule5_brandIntegration ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule5_brandIntegration ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(5)}
-                    <span className="font-bold text-sm dark:text-white text-black">5. Brand Authorship Integration</span>
+                    <span className="font-bold text-sm dark:text-white text-[#1a1424]">5. Brand Authorship Integration</span>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input
@@ -343,39 +335,38 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule5_brandIntegration')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
                   <div>
-                    <label className="text-[11px] font-mono font-bold dark:text-[#ffd06a] text-[#52391e]">Company Name:</label>
+                    <label className="text-[11px] font-mono font-bold dark:text-[#E8899C] text-[#7a6b5a]">Company Name:</label>
                     <input
                       type="text"
                       value={config.rule5_companyName}
                       onChange={(e) => handleTextChange('rule5_companyName', e.target.value)}
                       placeholder="e.g. Acme Labs"
                       disabled={!config.rule5_brandIntegration}
-                      className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-black border dark:border-[#e6d5a8]/15 border-[#d8c496] focus:outline-none focus:border-[#fa520f]"
+                      className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-[#1a1424] border dark:border-[#CE4E69]/15 border-[#CE4E69]/15 focus:outline-none focus:border-[#CE4E69]"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] font-mono font-bold dark:text-[#ffd06a] text-[#52391e]">Company Value / Context:</label>
+                    <label className="text-[11px] font-mono font-bold dark:text-[#E8899C] text-[#7a6b5a]">Company Value / Context:</label>
                     <input
                       type="text"
                       value={config.rule5_companyInfo}
                       onChange={(e) => handleTextChange('rule5_companyInfo', e.target.value)}
                       placeholder="e.g. Local family installer for 12 yrs"
                       disabled={!config.rule5_brandIntegration}
-                      className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-black border dark:border-[#e6d5a8]/15 border-[#d8c496] focus:outline-none focus:border-[#fa520f]"
+                      className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-[#1a1424] border dark:border-[#CE4E69]/15 border-[#CE4E69]/15 focus:outline-none focus:border-[#CE4E69]"
                     />
                   </div>
                 </div>
               </div>
 
               {/* RULE 6 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule6_nonPushyAuthentic ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule6_nonPushyAuthentic ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(6)}
@@ -388,7 +379,7 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule6_nonPushyAuthentic')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
                 <p className="text-xs dark:text-white/80 text-black leading-relaxed">
@@ -397,9 +388,8 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
               </div>
 
               {/* RULE 7 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule7_fictionalAnecdotes ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule7_fictionalAnecdotes ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(7)}
@@ -412,26 +402,25 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule7_fictionalAnecdotes')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
                 <div className="space-y-1.5 mt-2">
-                  <label className="text-[11px] font-mono font-bold dark:text-[#ffd06a] text-[#52391e]">Anecdote Scenario Archetype:</label>
+                  <label className="text-[11px] font-mono font-bold dark:text-[#E8899C] text-[#7a6b5a]">Anecdote Scenario Archetype:</label>
                   <input
                     type="text"
                     value={config.rule7_anecdoteTheme}
                     onChange={(e) => handleTextChange('rule7_anecdoteTheme', e.target.value)}
                     placeholder="e.g. Imagine a homeowner whose AC trips at 104 degrees..."
                     disabled={!config.rule7_fictionalAnecdotes}
-                    className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-black border dark:border-[#e6d5a8]/15 border-[#d8c496] focus:outline-none focus:border-[#fa520f]"
+                    className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-black border dark:border-[#CE4E69]/15 border-[#CE4E69] focus:outline-none focus:border-[#CE4E69]"
                   />
                 </div>
               </div>
 
               {/* RULE 8 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule8_hookIntroFramework ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule8_hookIntroFramework ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(8)}
@@ -444,7 +433,7 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule8_hookIntroFramework')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
                 <p className="text-xs dark:text-white/80 text-black leading-relaxed">
@@ -453,9 +442,8 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
               </div>
 
               {/* RULE 9 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule9_dynamicCadence ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule9_dynamicCadence ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(9)}
@@ -468,7 +456,7 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule9_dynamicCadence')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
                 <p className="text-xs dark:text-white/80 text-black leading-relaxed">
@@ -477,9 +465,8 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
               </div>
 
               {/* RULE 10 */}
-              <div className={`p-4 rounded-xl border transition-all ${
-                config.rule10_targetAvatar ? 'surface-card border-[#fa520f]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
-              }`}>
+              <div className={`p-4 rounded-xl border transition-all ${config.rule10_targetAvatar ? 'surface-card border-[#CE4E69]/40 shadow-sm' : 'surface-deep opacity-60 border-dashed dark:border-white/10 border-black/10'
+                }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     {getRuleIcon(10)}
@@ -492,44 +479,44 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       onChange={() => handleToggleRule('rule10_targetAvatar')}
                       className="sr-only peer"
                     />
-                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#fa520f]"></div>
+                    <div className="w-9 h-5 bg-gray-300 dark:bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#CE4E69]"></div>
                   </label>
                 </div>
                 <div className="space-y-1.5 mt-2">
-                  <label className="text-[11px] font-mono font-bold dark:text-[#ffd06a] text-[#52391e]">Primary Avatar / Persona Description:</label>
+                  <label className="text-[11px] font-mono font-bold dark:text-[#E8899C] text-[#7a6b5a]">Primary Avatar / Persona Description:</label>
                   <input
                     type="text"
                     value={config.rule10_avatarDescription}
                     onChange={(e) => handleTextChange('rule10_avatarDescription', e.target.value)}
                     placeholder="e.g. Stressed parent or founder balancing 5 tasks at once"
                     disabled={!config.rule10_targetAvatar}
-                    className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-black border dark:border-[#e6d5a8]/15 border-[#d8c496] focus:outline-none focus:border-[#fa520f]"
+                    className="w-full surface-deep rounded-lg p-2 text-xs font-semibold dark:text-white text-black border dark:border-[#CE4E69]/15 border-[#CE4E69] focus:outline-none focus:border-[#CE4E69]"
                   />
                 </div>
               </div>
             </div>
           ) : (
             <div className="space-y-4">
-              <div className="surface-deep rounded-xl p-4 font-mono text-xs leading-relaxed whitespace-pre-wrap dark:text-white text-black border dark:border-[#e6d5a8]/15 border-[#d8c496] max-h-[360px] overflow-y-auto">
+              <div className="surface-deep rounded-xl p-4 font-mono text-xs leading-relaxed whitespace-pre-wrap dark:text-white text-black border dark:border-[#CE4E69]/15 border-[#CE4E69] max-h-[360px] overflow-y-auto">
                 {getCompiledPromptText()}
               </div>
               <p className="text-xs dark:text-white/70 text-black font-semibold">
-                This exact prompt is dynamically injected into KrackAI's two-stage humanizer engine to ensure 100% compliance with every rule.
+                This exact prompt is dynamically injected into Researchub's two-stage humanizer engine to ensure 100% compliance with every rule.
               </p>
             </div>
           )}
 
           {/* Compliance Audit Section (if provided) */}
           {ruleAudits && ruleAudits.length > 0 && (
-            <div className="border-t dark:border-[#e6d5a8]/15 border-[#d8c496] pt-5 space-y-3">
+            <div className="border-t dark:border-[#CE4E69]/15 border-[#CE4E69] pt-5 space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#fa520f]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#CE4E69]" />
                   <span className="font-serif font-bold text-sm dark:text-white text-black">
                     10 Directives Compliance Scorecard
                   </span>
                 </div>
-                <span className="text-xs font-mono font-bold text-[#fa520f]">
+                <span className="text-xs font-mono font-bold text-[#CE4E69]">
                   {ruleAudits.filter((r) => r.passed).length}/10 Passed
                 </span>
               </div>
@@ -538,17 +525,15 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                 {ruleAudits.map((audit) => (
                   <div
                     key={audit.ruleId}
-                    className={`p-2.5 rounded-lg border flex flex-col justify-between ${
-                      audit.passed
-                        ? 'surface-card border-[#fa520f]/30'
+                    className={`p-2.5 rounded-lg border flex flex-col justify-between ${audit.passed
+                        ? 'surface-card border-[#CE4E69]/30'
                         : 'surface-deep border-dashed border-red-500/40'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center justify-between mb-1">
                       <span className="text-[10px] font-bold text-black dark:text-white/70">Rule {audit.ruleId}</span>
-                      <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded ${
-                        audit.passed ? 'bg-[#fa520f]/20 text-[#fa520f]' : 'bg-red-500/20 text-red-400'
-                      }`}>
+                      <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded ${audit.passed ? 'bg-[#CE4E69]/20 text-[#CE4E69]' : 'bg-red-500/20 text-red-400'
+                        }`}>
                         {audit.passed ? `${audit.score}%` : 'Fix'}
                       </span>
                     </div>
@@ -556,7 +541,7 @@ export const Rules10Manager: React.FC<Rules10ManagerProps> = ({
                       {audit.title}
                     </div>
                     {audit.metric && (
-                      <div className="text-[10px] text-[#fa520f] font-semibold mt-1 truncate">
+                      <div className="text-[10px] text-[#CE4E69] font-semibold mt-1 truncate">
                         {audit.metric}
                       </div>
                     )}

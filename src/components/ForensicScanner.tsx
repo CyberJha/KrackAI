@@ -90,7 +90,7 @@ export const ForensicScanner: React.FC = () => {
         return (
           <mark
             key={i}
-            className="bg-[#fa520f]/20 text-[#d43e02] dark:text-[#ff8a00] font-bold px-1 py-0.5 rounded border border-[#fa520f]/40 cursor-help"
+            className="bg-[#CE4E69]/20 text-[#B03A54] dark:text-[#D96B82] font-bold px-1 py-0.5 rounded border border-[#CE4E69]/40 cursor-help"
             title={`Flagged AI Token: "${part}"`}
           >
             {part}
@@ -104,12 +104,12 @@ export const ForensicScanner: React.FC = () => {
   return (
     <div className="space-y-6 max-w-5xl mx-auto font-sans">
       {/* Top Banner */}
-      <div className="surface-card rounded-3xl p-6 sm:p-8 relative overflow-hidden border dark:border-white/10 border-[#d8c496] glass-card shadow-xl">
+      <div className="surface-card rounded-3xl p-6 sm:p-8 relative overflow-hidden border dark:border-white/10 border-[#CE4E69] glass-card shadow-xl">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center space-x-2 text-[#fa520f] font-mono text-xs uppercase font-bold mb-1">
-              <Radar className="w-4 h-4 text-[#fa520f]" />
-              <span className="tracking-wider">KRACKAI "IS IT AI" CLASSIFIER AUDIT</span>
+            <div className="flex items-center space-x-2 text-[#CE4E69] font-mono text-xs uppercase font-bold mb-1">
+              <Radar className="w-4 h-4 text-[#CE4E69]" />
+              <span className="tracking-wider">Researchub "IS IT AI" CLASSIFIER AUDIT</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-serif dark:text-white text-black font-bold tracking-tight">
               AI Detection Risk &amp; Token Audit
@@ -132,15 +132,15 @@ export const ForensicScanner: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column: Text & Highlights */}
-        <div className="lg:col-span-2 surface-card rounded-3xl p-6 space-y-4 border dark:border-white/10 border-[#d8c496] glass-card shadow-xl">
-          <div className="flex items-center justify-between border-b dark:border-white/10 border-[#d8c496] pb-3 text-xs font-mono">
+        <div className="lg:col-span-2 surface-card rounded-3xl p-6 space-y-4 border dark:border-white/10 border-[#CE4E69] glass-card shadow-xl">
+          <div className="flex items-center justify-between border-b dark:border-white/10 border-[#CE4E69] pb-3 text-xs font-mono">
             <span className="font-bold dark:text-white text-black">Source Text Corpus</span>
             <label className="flex items-center space-x-2 cursor-pointer font-bold dark:text-white text-black">
               <input
                 type="checkbox"
                 checked={highlightMarkers}
                 onChange={(e) => setHighlightMarkers(e.target.checked)}
-                className="rounded accent-[#fa520f]"
+                className="rounded accent-[#CE4E69]"
               />
               <span>Highlight AI Tokens</span>
             </label>
@@ -152,13 +152,13 @@ export const ForensicScanner: React.FC = () => {
               onChange={(e) => setText(e.target.value)}
               rows={12}
               placeholder="Paste text here to perform classifier scan..."
-              className="w-full surface-deep rounded-2xl p-4 text-sm dark:text-white text-black font-semibold focus:outline-none focus:border-[#fa520f] font-sans leading-relaxed resize-y border dark:border-white/10 border-[#d8c496] shadow-inner"
+              className="w-full surface-deep rounded-2xl p-4 text-sm dark:text-white text-black font-semibold focus:outline-none focus:border-[#CE4E69] font-sans leading-relaxed resize-y border dark:border-white/10 border-[#CE4E69] shadow-inner"
             />
           </div>
 
           {highlightMarkers && (
-            <div className="surface-deep rounded-2xl p-4 text-sm font-sans leading-relaxed max-h-60 overflow-y-auto whitespace-pre-wrap select-text dark:text-white text-black border dark:border-white/10 border-[#d8c496] shadow-inner">
-              <div className="text-xs font-mono text-[#fa520f] font-bold mb-2">TOKEN HIGHLIGHT PREVIEW:</div>
+            <div className="surface-deep rounded-2xl p-4 text-sm font-sans leading-relaxed max-h-60 overflow-y-auto whitespace-pre-wrap select-text dark:text-white text-black border dark:border-white/10 border-[#CE4E69] shadow-inner">
+              <div className="text-xs font-mono text-[#CE4E69] font-bold mb-2">TOKEN HIGHLIGHT PREVIEW:</div>
               {renderHighlightedText()}
             </div>
           )}
@@ -167,54 +167,54 @@ export const ForensicScanner: React.FC = () => {
         {/* Right Column: Scan Metrics */}
         <div className="space-y-4">
           {analysis ? (
-            <div className="surface-card rounded-3xl p-6 space-y-4 font-mono text-xs border dark:border-white/10 border-[#d8c496] glass-card shadow-xl">
-              <div className="border-b dark:border-white/10 border-[#d8c496] pb-3">
-                <span className="dark:text-white/60 text-black uppercase font-bold text-[10px]">OVERALL RISK ASSESSMENT</span>
-                <div className="text-3xl font-serif text-[#fa520f] font-bold mt-1">
+            <div className="surface-card rounded-3xl p-6 space-y-4 font-mono text-xs border dark:border-white/10 border-[#CE4E69]/15 glass-card shadow-xl">
+              <div className="border-b dark:border-white/10 border-[#CE4E69]/10 pb-3">
+                <span className="dark:text-white/60 text-[#1a1424]/60 uppercase font-bold text-[10px]">OVERALL RISK ASSESSMENT</span>
+                <div className="text-3xl font-serif text-[#CE4E69] font-bold mt-1">
                   {analysis.detectorScores.overallAiRisk}% AI RISK
                 </div>
-                <div className="dark:text-white/80 text-black font-bold text-xs mt-0.5">{analysis.verdict}</div>
+                <div className="dark:text-white/80 text-[#1a1424] font-bold text-xs mt-0.5">{analysis.verdict}</div>
               </div>
 
               <div className="space-y-2">
-                <span className="dark:text-white/60 text-black uppercase font-bold text-[10px]">DETECTOR BREAKDOWN</span>
+                <span className="dark:text-white/60 text-[#1a1424]/60 uppercase font-bold text-[10px]">DETECTOR BREAKDOWN</span>
                 <div className="space-y-1.5 text-xs font-bold">
-                  <div className="flex items-center justify-between p-2.5 rounded-xl surface-deep border dark:border-white/10 border-[#d8c496]">
-                    <span className="dark:text-white text-black">Turnitin</span>
-                    <span className="text-[#fa520f]">{analysis.detectorScores.turnitin}% AI</span>
+                  <div className="flex items-center justify-between p-2.5 rounded-xl surface-deep border dark:border-white/10 border-[#CE4E69]/15">
+                    <span className="dark:text-white text-[#1a1424]">Turnitin</span>
+                    <span className="text-[#CE4E69]">{analysis.detectorScores.turnitin}% AI</span>
                   </div>
-                  <div className="flex items-center justify-between p-2.5 rounded-xl surface-deep border dark:border-white/10 border-[#d8c496]">
-                    <span className="dark:text-white text-black">GPTZero</span>
-                    <span className="text-[#fa520f]">{analysis.detectorScores.gptZero}% AI</span>
+                  <div className="flex items-center justify-between p-2.5 rounded-xl surface-deep border dark:border-white/10 border-[#CE4E69]/15">
+                    <span className="dark:text-white text-[#1a1424]">GPTZero</span>
+                    <span className="text-[#CE4E69]">{analysis.detectorScores.gptZero}% AI</span>
                   </div>
-                  <div className="flex items-center justify-between p-2.5 rounded-xl surface-deep border dark:border-white/10 border-[#d8c496]">
-                    <span className="dark:text-white text-black">ZeroGPT</span>
-                    <span className="text-[#fa520f]">{analysis.detectorScores.zeroGpt}% AI</span>
+                  <div className="flex items-center justify-between p-2.5 rounded-xl surface-deep border dark:border-white/10 border-[#CE4E69]/15">
+                    <span className="dark:text-white text-[#1a1424]">ZeroGPT</span>
+                    <span className="text-[#CE4E69]">{analysis.detectorScores.zeroGpt}% AI</span>
                   </div>
-                  <div className="flex items-center justify-between p-2.5 rounded-xl surface-deep border dark:border-white/10 border-[#d8c496]">
-                    <span className="dark:text-white text-black">CopyLeaks</span>
-                    <span className="text-[#fa520f]">{analysis.detectorScores.copyLeaks}% AI</span>
+                  <div className="flex items-center justify-between p-2.5 rounded-xl surface-deep border dark:border-white/10 border-[#CE4E69]/15">
+                    <span className="dark:text-white text-[#1a1424]">CopyLeaks</span>
+                    <span className="text-[#CE4E69]">{analysis.detectorScores.copyLeaks}% AI</span>
                   </div>
                 </div>
               </div>
 
-              <div className="border-t dark:border-white/10 border-[#d8c496] pt-3 space-y-2 font-bold">
+              <div className="border-t dark:border-white/10 border-[#CE4E69]/10 pt-3 space-y-2 font-bold">
                 <div className="flex justify-between">
-                  <span className="dark:text-white/80 text-black">Sentence Burstiness:</span>
-                  <span className="dark:text-[#ffd900] text-black font-extrabold">{analysis.burstinessScore}/100</span>
+                  <span className="dark:text-white/80 text-[#1a1424]/80">Sentence Burstiness:</span>
+                  <span className="dark:text-[#E8899C] text-[#8C2D43] font-extrabold">{analysis.burstinessScore}/100</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="dark:text-white/80 text-black">Avg Sentence Length:</span>
-                  <span className="dark:text-white text-black">{analysis.avgSentenceLength} words</span>
+                  <span className="dark:text-white/80 text-[#1a1424]/80">Avg Sentence Length:</span>
+                  <span className="dark:text-white text-[#1a1424]">{analysis.avgSentenceLength} words</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="dark:text-white/80 text-black">Flagged AI Tokens:</span>
-                  <span className="text-[#fa520f] font-extrabold">{analysis.detectedMarkers.length} tokens</span>
+                  <span className="dark:text-white/80 text-[#1a1424]/80">Flagged AI Tokens:</span>
+                  <span className="text-[#CE4E69] font-extrabold">{analysis.detectedMarkers.length} tokens</span>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="surface-card rounded-3xl p-8 text-center text-xs font-mono dark:text-white/50 text-black font-bold glass-card border dark:border-white/10 border-[#d8c496]">
+            <div className="surface-card rounded-3xl p-8 text-center text-xs font-mono dark:text-white/50 text-[#1a1424]/70 font-bold glass-card border dark:border-white/10 border-[#CE4E69]/15">
               Click "Audit Document" to generate classifier risk analysis.
             </div>
           )}

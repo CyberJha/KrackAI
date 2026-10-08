@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function startServer() {
-  const PORT = 3000;
+  const PORT = 5147;
 
   // Vite Integration for Local Dev / Cloud Run
   if (process.env.NODE_ENV !== 'production') {

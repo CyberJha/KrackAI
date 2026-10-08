@@ -15,7 +15,15 @@ import {
   Layers,
   Copy,
   Check,
+  RotateCcw,
+  ThumbsUp,
+  ThumbsDown,
 } from 'lucide-react';
+import {
+  storeFeedbackItem,
+  buildAdaptiveFeedbackDirectives,
+  FeedbackItem,
+} from '../engine/feedbackMemory';
 import { ResearchPipelineResult } from '../types';
 
 export const ResearchPipeline: React.FC = () => {
@@ -25,13 +33,16 @@ export const ResearchPipeline: React.FC = () => {
   const [result, setResult] = useState<ResearchPipelineResult | null>(null);
   const [copied, setCopied] = useState(false);
   const [viewMode, setViewMode] = useState<'final' | 'draft' | 'critique'>('final');
+  const [loopCount, setLoopCount] = useState<number>(2);
+  const [feedbackRating, setFeedbackRating] = useState<'up' | 'down' | null>(null);
+  const [feedbackStatusMsg, setFeedbackStatusMsg] = useState<string>('');
 
   const agentSteps = [
     { id: 0, name: 'Manager Agent', role: 'Plans 3 focused research subtasks', icon: Brain },
     { id: 1, name: 'Search & Wiki', role: 'Gathers empirical metrics & encyclopedic facts', icon: Search },
     { id: 2, name: 'Writer Agent', role: 'Synthesizes exhaustive technical draft', icon: FileText },
     { id: 3, name: 'Critic Agent', role: 'Audits factual grounding & flaws', icon: AlertCircle },
-    { id: 4, name: 'Humanizing Agent', role: 'Two-stage anti-detection rewrite (temp=0.88)', icon: Sparkles },
+    { id: 4, name: 'Humanizing Agent', role: `StealthHumanizer v3 + Blader v3.1 (${loopCount}-Loop Engine)`, icon: Sparkles },
     { id: 5, name: 'Originality Checker', role: 'Compares against retrieved corpus', icon: ShieldCheck },
   ];
 
@@ -54,7 +65,11 @@ export const ResearchPipeline: React.FC = () => {
       const res = await fetch('/api/run-research', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({
+          query,
+          loopCount,
+          feedbackDirectives: buildAdaptiveFeedbackDirectives(),
+        }),
       });
 
       clearInterval(interval);
@@ -72,6 +87,39 @@ export const ResearchPipeline: React.FC = () => {
       alert('Error running pipeline: ' + err.message);
     } finally {
       setIsRunning(false);
+    }
+  };
+
+    const handleResearchFeedback = async (rating: 'up' | 'down') => {
+    if (!result?.finalReport) return;
+    const newRating = feedbackRating === rating ? null : rating;
+    setFeedbackRating(newRating);
+
+    if (newRating) {
+      const item: FeedbackItem = {
+        id: 'fb-res-' + Date.now(),
+        timestamp: Date.now(),
+        rating: newRating,
+        sampleSnippet: result.finalReport.slice(0, 240),
+        candidateName: 'Deep Research Synthesis',
+        burstinessScore: result.finalAnalysis?.burstinessScore,
+        zerogptScore: result.finalAnalysis?.detectorScores?.zeroGpt,
+      };
+      storeFeedbackItem(item);
+      setFeedbackStatusMsg(
+        newRating === 'up'
+          ? '👍 Style Learned: Research Humanizer will reinforce this natural cadence.'
+          : '👎 Noted: Research Humanizer will avoid this phrasing register in future passes.'
+      );
+      try {
+        await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(item),
+        });
+      } catch (e) {}
+    } else {
+      setFeedbackStatusMsg('');
     }
   };
 
@@ -129,10 +177,34 @@ export const ResearchPipeline: React.FC = () => {
             placeholder="Enter research topic (e.g. what is quantum engineering ?)"
             className="flex-1 bg-slate-950 border border-slate-700/80 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
           />
+
+          {/* Humanizer Loop Selector */}
+          <div className="flex items-center space-x-2 bg-slate-950 px-3.5 py-2 rounded-xl border border-slate-700/80 shrink-0">
+            <RotateCcw className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="text-xs text-slate-300 font-medium">Humanizer Passes:</span>
+            <div className="flex items-center space-x-1 bg-slate-800/80 p-0.5 rounded-lg">
+              {[1, 2, 3].map((num) => (
+                <button
+                  key={num}
+                  type="button"
+                  onClick={() => setLoopCount(num)}
+                  title={`${num}x Iterative Humanizer Pass${num > 1 ? 'es' : ''}`}
+                  className={`px-2.5 py-1 rounded text-xs font-bold transition-all ${
+                    loopCount === num
+                      ? 'bg-emerald-600 text-white shadow-sm'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {num}x
+                </button>
+              ))}
+            </div>
+          </div>
+
           <button
             onClick={handleRunPipeline}
             disabled={isRunning || !query.trim()}
-            className={`px-6 py-3 rounded-xl font-semibold text-sm flex items-center justify-center space-x-2 shadow-lg transition-all ${
+            className={`px-6 py-3 rounded-xl font-semibold text-sm flex items-center justify-center space-x-2 shadow-lg transition-all shrink-0 ${
               isRunning || !query.trim()
                 ? 'bg-slate-800 text-slate-500 cursor-not-allowed'
                 : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/20 active:scale-[0.99]'
@@ -289,6 +361,35 @@ export const ResearchPipeline: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Loop Round Progression Pills */}
+            {result.loopRoundMetrics && result.loopRoundMetrics.length > 1 && (
+              <div className="mt-3 pt-3 border-t border-slate-800 space-y-1.5">
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-emerald-400 font-bold flex items-center space-x-1.5">
+                    <RotateCcw className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>{result.loopRoundMetrics.length}-Pass Humanizer Loop Progression:</span>
+                  </span>
+                  <span className="text-emerald-300 font-bold">
+                    {result.loopRoundMetrics[0].zerogpt}% → {result.loopRoundMetrics[result.loopRoundMetrics.length - 1].zerogpt}% ZeroGPT
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {result.loopRoundMetrics.map((rm) => (
+                    <div key={rm.round} className="bg-slate-900/90 p-2 rounded-lg border border-slate-800 text-[11px] font-mono">
+                      <div className="flex items-center justify-between text-slate-400 font-bold">
+                        <span>Pass {rm.round}</span>
+                        <span className="text-teal-300">{rm.burstiness} Burst</span>
+                      </div>
+                      <div className="flex items-center justify-between mt-1">
+                        <span className="text-emerald-400 font-bold">{rm.zerogpt}% ZeroGPT</span>
+                        <span className="text-rose-400">{rm.turnitin}% Turnitin</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Report Viewer with Tabs */}
@@ -328,13 +429,40 @@ export const ResearchPipeline: React.FC = () => {
               </div>
 
               {viewMode === 'final' && (
-                <button
-                  onClick={copyFinalReport}
-                  className="flex items-center space-x-1.5 text-xs px-3 py-1.5 rounded-lg bg-emerald-600/90 hover:bg-emerald-500 text-white font-medium transition-colors"
-                >
-                  {copied ? <Check className="w-3.5 h-3.5 text-white" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span>{copied ? 'Copied!' : 'Copy Plain Text'}</span>
-                </button>
+                <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1 bg-slate-900 border border-slate-800 p-0.5 rounded-lg">
+                    <button
+                      onClick={() => handleResearchFeedback('up')}
+                      title="Good humanized tone - AI will learn and replicate this style"
+                      className={`p-1.5 rounded text-xs transition-all ${
+                        feedbackRating === 'up'
+                          ? 'bg-emerald-500 text-white font-bold'
+                          : 'text-slate-400 hover:text-emerald-400'
+                      }`}
+                    >
+                      <ThumbsUp className="w-3.5 h-3.5" />
+                    </button>
+                    <button
+                      onClick={() => handleResearchFeedback('down')}
+                      title="Needs improvement - AI will avoid this style next time"
+                      className={`p-1.5 rounded text-xs transition-all ${
+                        feedbackRating === 'down'
+                          ? 'bg-rose-500 text-white font-bold'
+                          : 'text-slate-400 hover:text-rose-400'
+                      }`}
+                    >
+                      <ThumbsDown className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                  <button
+                    onClick={copyFinalReport}
+                    className="flex items-center space-x-1.5 text-xs px-3 py-1.5 rounded-lg bg-emerald-600/90 hover:bg-emerald-500 text-white font-medium transition-colors"
+                  >
+                    {copied ? <Check className="w-3.5 h-3.5 text-white" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span>{copied ? 'Copied!' : 'Copy Plain Text'}</span>
+                  </button>
+                </div>
               )}
             </div>
 

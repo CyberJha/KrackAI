@@ -1,180 +1,279 @@
 import React from 'react';
-import { BookOpen, Activity, Zap, AlertTriangle, ShieldAlert, CheckCircle2, ShieldCheck, FileCheck, Layers } from 'lucide-react';
+import { BookOpen, CheckCircle2, ShieldCheck, Layers, FileCheck } from 'lucide-react';
 
 export const EvasionGuide: React.FC = () => {
   return (
-    <div className="space-y-8 max-w-5xl mx-auto font-sans">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '960px', margin: '0 auto', fontFamily: 'var(--font-sans)' }}>
       {/* Top Banner */}
-      <div className="surface-card rounded-3xl p-6 sm:p-8 border dark:border-white/10 border-[#d8c496] glass-card shadow-xl">
-        <div className="flex items-center space-x-2 text-[#fa520f] font-mono text-xs uppercase mb-1 font-bold">
-          <BookOpen className="w-4 h-4" />
-          <span>KRACKAI LINGUISTIC &amp; EDITING CONSTITUTION</span>
+      <div
+        style={{
+          background: '#fffaeb',
+          borderRadius: '12px',
+          padding: '24px',
+          border: '1px solid #e6d5a8',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            color: '#fa520f',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '11px',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            marginBottom: '6px',
+          }}
+        >
+          <BookOpen size={14} />
+          <span>Researchub Linguistic &amp; Editing Constitution</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-serif dark:text-white text-black tracking-tight font-bold">
+        <h2 style={{ fontSize: '22px', fontWeight: 700, color: '#1f1f1f', margin: '0 0 8px', letterSpacing: '-0.02em' }}>
           Editing Constraints, Priorities &amp; 31-Pattern Architecture
         </h2>
-        <p className="text-xs sm:text-sm dark:text-white/80 text-black mt-1 max-w-3xl leading-relaxed font-semibold">
-          When constraints conflict, KrackAI enforces a strict 5-tier priority hierarchy: preserving factual certainty, respecting the author's input register, dissolving synthetic clichés, and verifying claims against original evidence.
+        <p style={{ fontSize: '13px', color: '#4a4a4a', margin: 0, maxWidth: '64ch', lineHeight: 1.6 }}>
+          When constraints conflict, Researchub enforces a strict 4-tier priority hierarchy: preserving factual certainty, respecting the author's input register, dissolving synthetic clichés, and verifying claims against original evidence.
         </p>
       </div>
 
       {/* Editing Constraints Hierarchy */}
-      <div className="surface-card rounded-3xl p-6 sm:p-8 border dark:border-white/10 border-[#d8c496] glass-card space-y-5">
-        <div className="flex items-center space-x-2 border-b dark:border-white/10 border-[#d8c496] pb-3">
-          <ShieldCheck className="w-5 h-5 text-[#fa520f]" />
-          <h3 className="font-serif text-lg sm:text-xl font-bold dark:text-white text-black">
+      <div
+        style={{
+          background: '#ffffff',
+          borderRadius: '12px',
+          padding: '24px',
+          border: '1px solid #e5e5e5',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingBottom: '10px', borderBottom: '1px solid #e5e5e5' }}>
+          <ShieldCheck size={18} color="#fa520f" />
+          <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1f1f1f', margin: 0 }}>
             Hierarchical Priority Order for Conflicting Constraints
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans leading-relaxed">
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-mono font-bold text-[#fa520f] flex items-center space-x-2">
-              <span className="w-5 h-5 rounded-full bg-[#fa520f] text-white flex items-center justify-center text-[10px]">1</span>
-              <span>Retain Information &amp; Degree of Certainty</span>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '12px' }}>
+          {[
+            {
+              step: '1',
+              title: 'Retain Information & Degree of Certainty',
+              desc: 'Never fabricate facts, numbers, dates, citations, or implementation details not in original text. Retain negation, comparison objects, scope, conditions, time, and attribution. Do not convert "possible" to "certain", or "planned" to "completed".',
+            },
+            {
+              step: '2',
+              title: 'Adhere to Editing Scope & Style',
+              desc: 'Polishing does not by default include summarizing or rewriting core arguments. When explicit illustrative examples are requested, clearly distinguish between original facts and new fictional scenarios.',
+            },
+            {
+              step: '3',
+              title: 'Match Author Voice & Input Register',
+              desc: 'For technical & product docs, preserve terminology, version numbers, and system states. For academic texts, retain necessary formality and qualifiers without forced artificial colloquialisms.',
+            },
+            {
+              step: '4',
+              title: 'Resolve 31 Pattern Checkpoints',
+              desc: 'Purge vague staging, false contrasts ("It\'s not X, it\'s Y"), dramatic single-sentence fragments, unearned authority claims, and customer service remnants.',
+            },
+          ].map((item) => (
+            <div
+              key={item.step}
+              style={{
+                background: '#fafafa',
+                borderRadius: '8px',
+                padding: '16px',
+                border: '1px solid #e5e5e5',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '6px',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span
+                  style={{
+                    width: '20px',
+                    height: '20px',
+                    borderRadius: '50%',
+                    background: '#1f1f1f',
+                    color: '#ffffff',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {item.step}
+                </span>
+                <span style={{ fontSize: '13px', fontWeight: 700, color: '#1f1f1f' }}>
+                  {item.title}
+                </span>
+              </div>
+              <p style={{ fontSize: '12px', color: '#4a4a4a', lineHeight: 1.5, margin: 0 }}>
+                {item.desc}
+              </p>
             </div>
-            <p className="dark:text-white/85 text-black font-semibold">
-              Never fabricate facts, numbers, dates, citations, or implementation details not in original text. Retain negation, comparison objects, scope, conditions, time, completion status, and attribution. Do not change <em>"related"</em> to <em>"causal"</em>, <em>"possible"</em> to <em>"certain"</em>, or <em>"planned"</em> to <em>"completed"</em>.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-mono font-bold text-[#fa520f] flex items-center space-x-2">
-              <span className="w-5 h-5 rounded-full bg-[#fa520f] text-white flex items-center justify-center text-[10px]">2</span>
-              <span>Adhere to Editing Scope &amp; Style</span>
-            </div>
-            <p className="dark:text-white/85 text-black font-semibold">
-              Polishing does not by default include summarizing or rewriting viewpoints. When the user explicitly requests illustrative examples, clearly distinguish between original facts and new fictional scenarios—never disguise speculation as real records.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-mono font-bold text-[#fa520f] flex items-center space-x-2">
-              <span className="w-5 h-5 rounded-full bg-[#fa520f] text-white flex items-center justify-center text-[10px]">3</span>
-              <span>Match Author Voice &amp; Input Register</span>
-            </div>
-            <p className="dark:text-white/85 text-black font-semibold">
-              For technical &amp; product docs, accurately preserve terminology, version, and operating status. For factual &amp; academic texts, retain necessary formality, attribution, and qualifiers without forcing fake colloquialisms. Natural conjunctions (<em>"firstly"</em>, <em>"however"</em>) are preserved when functional.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-mono font-bold text-[#fa520f] flex items-center space-x-2">
-              <span className="w-5 h-5 rounded-full bg-[#fa520f] text-white flex items-center justify-center text-[10px]">4</span>
-              <span>Resolve 31 Pattern Checkpoints</span>
-            </div>
-            <p className="dark:text-white/85 text-black font-semibold">
-              Check for vague intros, false contrasts (<em>"Not X, but Y"</em>), dramatic single-sentence fragments, unearned authority claims, and customer service remnants without mechanically deleting valid domain phrases.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* 31 Pattern Checkpoints Categorization */}
-      <div className="surface-card rounded-3xl p-6 sm:p-8 border dark:border-white/10 border-[#d8c496] glass-card space-y-6">
-        <div className="flex items-center space-x-2 border-b dark:border-white/10 border-[#d8c496] pb-3">
-          <Layers className="w-5 h-5 text-[#fa520f]" />
-          <h3 className="font-serif text-lg sm:text-xl font-bold dark:text-white text-black">
-            The 31-Point Anti-Slop Pattern Checklist (PR 39 Specification)
+      {/* 31 Pattern Categories */}
+      <div
+        style={{
+          background: '#ffffff',
+          borderRadius: '12px',
+          padding: '24px',
+          border: '1px solid #e5e5e5',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingBottom: '10px', borderBottom: '1px solid #e5e5e5' }}>
+          <Layers size={18} color="#fa520f" />
+          <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1f1f1f', margin: 0 }}>
+            The 31-Point Anti-Slop Pattern Checklist (PR-39 Specification)
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs font-mono">
-          {/* Category A */}
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-bold text-[#fa520f] uppercase tracking-wider text-[11px]">A. Setting the Stage</div>
-            <ul className="space-y-1 dark:text-white/80 text-black list-disc list-inside text-[11px] font-semibold">
-              <li>1. False contrasts (<em>"It's not X, it's Y"</em>)</li>
-              <li>2. Single-sentence fragments</li>
-              <li>3. Maxims &amp; pseudo-depth metaphors</li>
-              <li>4. Starting line preparation filler</li>
-              <li>5. Debating hypothetical enemies</li>
-            </ul>
-          </div>
-
-          {/* Category B */}
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-bold text-[#fa520f] uppercase tracking-wider text-[11px]">B. Formulaic Rhythm</div>
-            <ul className="space-y-1 dark:text-white/80 text-black list-disc list-inside text-[11px] font-semibold">
-              <li>6. Forced three-part structures</li>
-              <li>7. Repeating sentence beginnings</li>
-              <li>8. Universal suspense dashes</li>
-              <li>9. Stacking identical determiners</li>
-              <li>10. Coined buzzwords &amp; labels</li>
-              <li>11. Missing subjects &amp; passive stacking</li>
-            </ul>
-          </div>
-
-          {/* Category C */}
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-bold text-[#fa520f] uppercase tracking-wider text-[11px]">C. Elevating Authority</div>
-            <ul className="space-y-1 dark:text-white/80 text-black list-disc list-inside text-[11px] font-semibold">
-              <li>12. High-frequency AI terms (<em>delve, tapestry</em>)</li>
-              <li>13. Unearned significance clichés</li>
-              <li>14. Fuzzy relationships &amp; identity guessing</li>
-              <li>15. Sentence-ending praise phrases</li>
-              <li>16. Empty promotional slogans</li>
-              <li>17. Fabricating expert citations</li>
-              <li>18. Overusing linking verbs</li>
-            </ul>
-          </div>
-
-          {/* Category D */}
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-bold text-[#fa520f] uppercase tracking-wider text-[11px]">D. Formulaic Typesetting</div>
-            <ul className="space-y-1 dark:text-white/80 text-black list-disc list-inside text-[11px] font-semibold">
-              <li>19. Decorative bolding obstruction</li>
-              <li>20. Decorative emojis/arrows in titles</li>
-              <li>21. Punctuation &amp; quote compliance</li>
-            </ul>
-          </div>
-
-          {/* Category E */}
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-bold text-[#fa520f] uppercase tracking-wider text-[11px]">E. Chat &amp; Draft Remnants</div>
-            <ul className="space-y-1 dark:text-white/80 text-black list-disc list-inside text-[11px] font-semibold">
-              <li>22. Customer service greetings (<em>"Good question!"</em>)</li>
-              <li>23. Knowledge boundary guesswork</li>
-              <li>24. First-sentence title restatements</li>
-              <li>25. Meta-notes on previous revisions</li>
-            </ul>
-          </div>
-
-          {/* Category F */}
-          <div className="p-4 rounded-2xl surface-deep border dark:border-white/10 border-[#d8c496] space-y-2">
-            <div className="font-bold text-[#fa520f] uppercase tracking-wider text-[11px]">F. Multilingual Clarity</div>
-            <ul className="space-y-1 dark:text-white/80 text-black list-disc list-inside text-[11px] font-semibold">
-              <li>26. Layered convoluted modifiers (的)</li>
-              <li>27. Repetitive <em>"continue + verb"</em></li>
-              <li>28. Passive voice stacking</li>
-              <li>29. Forced parallel 4-character phrasing</li>
-              <li>30. <em>"With the development of..."</em> clichés</li>
-              <li>31. Stock ending wishes (<em>"wait and see"</em>)</li>
-            </ul>
-          </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px' }}>
+          {[
+            {
+              cat: 'A. Setting the Stage',
+              items: [
+                '1. False contrasts ("It\'s not X, it\'s Y")',
+                '2. Single-sentence dramatic fragments',
+                '3. Maxims & pseudo-depth metaphors',
+                '4. Starting line preparation filler',
+                '5. Debating hypothetical enemies',
+              ],
+            },
+            {
+              cat: 'B. Formulaic Rhythm',
+              items: [
+                '6. Forced three-part structures',
+                '7. Repeating sentence beginnings',
+                '8. Universal suspense dashes',
+                '9. Stacking identical determiners',
+                '10. Coined buzzwords & labels',
+                '11. Passive voice stacking',
+              ],
+            },
+            {
+              cat: 'C. Elevating Authority',
+              items: [
+                '12. High-frequency AI terms (delve, tapestry)',
+                '13. Unearned significance clichés',
+                '14. Fuzzy relationships & identity guessing',
+                '15. Sentence-ending praise phrases',
+                '16. Empty promotional slogans',
+                '17. Fabricating expert citations',
+                '18. Overusing linking verbs',
+              ],
+            },
+            {
+              cat: 'D. Typesetting & Emojis',
+              items: [
+                '19. Decorative bolding obstruction',
+                '20. Decorative emojis/arrows in titles',
+                '21. Punctuation & quote compliance',
+              ],
+            },
+            {
+              cat: 'E. Chat & Draft Remnants',
+              items: [
+                '22. Customer service greetings ("Good question!")',
+                '23. Knowledge boundary guesswork',
+                '24. First-sentence title restatements',
+                '25. Meta-notes on previous revisions',
+              ],
+            },
+            {
+              cat: 'F. Multilingual Clarity',
+              items: [
+                '26. Layered convoluted modifiers',
+                '27. Repetitive "continue + verb"',
+                '28. Passive voice stacking',
+                '29. Forced parallel 4-character phrasing',
+                '30. "With the development of..." clichés',
+                '31. Stock ending wishes ("wait and see")',
+              ],
+            },
+          ].map((c) => (
+            <div
+              key={c.cat}
+              style={{
+                background: '#fafafa',
+                borderRadius: '8px',
+                padding: '14px',
+                border: '1px solid #e5e5e5',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px',
+              }}
+            >
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700, color: '#fa520f', textTransform: 'uppercase' }}>
+                {c.cat}
+              </div>
+              <ul style={{ margin: 0, paddingLeft: '16px', fontSize: '11px', color: '#4a4a4a', lineHeight: 1.6 }}>
+                {c.items.map((it, idx) => (
+                  <li key={idx}>{it}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Pre-Delivery Verification Checklist */}
-      <div className="surface-card rounded-3xl p-6 sm:p-8 border dark:border-white/10 border-[#d8c496] glass-card space-y-4">
-        <div className="flex items-center space-x-2 text-emerald-500 font-bold">
-          <FileCheck className="w-5 h-5" />
-          <h3 className="font-serif text-lg font-bold dark:text-white text-black">
+      <div
+        style={{
+          background: '#f0fdf4',
+          borderRadius: '12px',
+          padding: '20px 24px',
+          border: '1px solid #a7f3d0',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <FileCheck size={18} color="#059669" />
+          <h3 style={{ fontSize: '14px', fontWeight: 700, color: '#059669', margin: 0 }}>
             Pre-Delivery Verification Checklist (Runs Before Every Output)
           </h3>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs font-mono">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '10px' }}>
           {[
             'Factual certainty preserved (No degree shifts)',
             'No fabricated facts, dates, or metrics',
             'Independent claims & negation intact',
             'Code blocks, URLs, and IDs untouched',
-            'Markdown table structures & numbers preserved',
+            'Markdown table structures preserved',
             'Zero AI meta-notes or greeting filler',
           ].map((check, i) => (
-            <div key={i} className="flex items-center space-x-2 p-3 rounded-xl surface-deep border dark:border-white/10 border-[#d8c496]">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span className="dark:text-white text-black font-semibold">{check}</span>
+            <div
+              key={i}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 12px',
+                borderRadius: '6px',
+                background: '#ffffff',
+                border: '1px solid #a7f3d0',
+                fontSize: '11px',
+                color: '#1f1f1f',
+                fontWeight: 500,
+              }}
+            >
+              <CheckCircle2 size={13} color="#059669" style={{ flexShrink: 0 }} />
+              <span>{check}</span>
             </div>
           ))}
         </div>

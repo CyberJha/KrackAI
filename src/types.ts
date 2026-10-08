@@ -67,6 +67,14 @@ export interface ResearchPipelineResult {
   query: string;
   subtasks: string[];
   draftReport: string;
+  totalLoops?: number;
+  loopRoundMetrics?: Array<{
+    round: number;
+    zerogpt: number;
+    turnitin: number;
+    overallAiRisk: number;
+    burstiness: number;
+  }>;
   criticData: {
     strengths?: string[];
     recommended_fixes?: string[];
@@ -77,6 +85,8 @@ export interface ResearchPipelineResult {
   finalReportMarkdown?: string;
   draftAnalysis: DetectabilityAnalysis;
   finalAnalysis: DetectabilityAnalysis;
-  agents: { name: string; status: string; detail: string }[];
+  agents?: { name: string; status: string; detail: string }[];
 }
+
+export type ResearchResult = ResearchPipelineResult;
 

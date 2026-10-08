@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { X, ShieldCheck, CheckCircle2, AlertTriangle, Layers, BookOpen, ChevronRight, FileText } from 'lucide-react';
 
 interface PR39ProtocolModalProps {
@@ -303,7 +303,7 @@ export const PR39ProtocolModal: React.FC<PR39ProtocolModalProps> = ({ isOpen, on
     : patternGroups.filter(g => g.group === activeGroup);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 font-sans">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 dark:bg-black/80 bg-black/40 backdrop-blur-md animate-in fade-in duration-200 font-sans">
       <div className="surface-card rounded-3xl w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden shadow-2xl relative border dark:border-white/10 border-[#d8c496] glass-card">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b dark:border-white/10 border-[#d8c496] surface-deep">

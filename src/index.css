@@ -1,3 +1,116 @@
+﻿/* ─── ALKES COMPLETE FONT FAMILY (14 STYLES) ─────────────────────────────── */
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesThin.TTF') format('truetype');
+  font-weight: 100 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesThinIt.TTF') format('truetype');
+  font-weight: 100 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesLight.TTF') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesLightIt.TTF') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesRegular.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesRgIt.TTF') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesSemiBd.TTF') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesSemiBdIt.TTF') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesBold.TTF') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesBoldIt.TTF') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesXtraBd.TTF') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesXtraBdIt.TTF') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesBlack.TTF') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alkes';
+  src: url('/fonts/alkes/AlkesBlackIt.TTF') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
